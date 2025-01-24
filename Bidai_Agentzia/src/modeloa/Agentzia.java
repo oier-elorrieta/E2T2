@@ -1,6 +1,6 @@
 package modeloa;
 
-public class agentzia {
+public class Agentzia {
 
 	private int identifikatzailea;
 	private String izena;
@@ -15,7 +15,7 @@ public class agentzia {
 	 * @param langKop
 	 * @param mota
 	 */
-	public agentzia(int identifikatzailea, String izena, String kolorea, int langKop, String mota) {
+	public Agentzia(int identifikatzailea, String izena, String kolorea, int langKop, String mota) {
 		super();
 		this.identifikatzailea = identifikatzailea;
 		this.izena = izena;
