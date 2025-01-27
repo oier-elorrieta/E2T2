@@ -1,6 +1,6 @@
 package modeloa;
 
-public class herrialde {
+public class Herrialde {
 	private int identifikatzailea;
 	private String hiria;
 
@@ -9,7 +9,7 @@ public class herrialde {
 	 * @param hiria
 	 */
 	
-	public herrialde(int identifikatzailea, String hiria) {
+	public Herrialde(int identifikatzailea, String hiria) {
 		super();
 		this.identifikatzailea = identifikatzailea;
 		this.hiria = hiria;

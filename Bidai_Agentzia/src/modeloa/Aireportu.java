@@ -1,6 +1,6 @@
 package modeloa;
 
-public class aireportu {
+public class Aireportu {
 
 	private int identifikatzailea;
 	private String hiria;
@@ -10,7 +10,7 @@ public class aireportu {
 	 * @param hiria
 	 */
 	
-	public aireportu(int identifikatzailea, String hiria) {
+	public Aireportu(int identifikatzailea, String hiria) {
 		super();
 		this.identifikatzailea = identifikatzailea;
 		this.hiria = hiria;

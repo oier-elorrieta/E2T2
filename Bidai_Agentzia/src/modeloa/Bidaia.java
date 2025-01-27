@@ -1,6 +1,6 @@
 package modeloa;
 
-public class bidaia {
+public class Bidaia {
 
 	private int identifikatzailea;
 	private String izena;
@@ -22,7 +22,7 @@ public class bidaia {
 	 * @param herriDeskribapena
 	 */
 	
-	public bidaia(int identifikatzailea, String izena, String deskribapena, String mota, int datak, int iraupen,
+	public Bidaia(int identifikatzailea, String izena, String deskribapena, String mota, int datak, int iraupen,
 			String helmugaHerri, String herriDeskribapena) {
 		super();
 		this.identifikatzailea = identifikatzailea;
