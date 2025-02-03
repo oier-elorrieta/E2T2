@@ -27,6 +27,18 @@ public class Controlador {
 			}
 		});
 		
+		ventanaPrincipal.profil_Berria.btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("Login");
+			}
+		});
+		
+		ventanaPrincipal.login.btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("OngiEtorri");
+			}
+		});
+		
 		/*login
 		pilla los datos de los text fields de erabiltzaile y pasahitza
 		Acce de a la BBDD con esos datos

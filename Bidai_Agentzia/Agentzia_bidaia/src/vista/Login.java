@@ -5,12 +5,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.Color;
 
 public class Login extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	public JButton btnAgentzia_berri;
-
+	public JButton btnAtzera;
 	/**
 	 * Create the panel.
 	 */
@@ -48,14 +49,22 @@ public class Login extends JPanel {
 		btnAgentzia_berri = new JButton("Agentzia berria");
 		btnAgentzia_berri.setBounds(264, 274, 130, 28);
 		add(btnAgentzia_berri);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(111, 147, 102));
+		panel.setBounds(84, 108, 350, 256);
+		add(panel);
+		
+		btnAtzera = new JButton("X");
+		btnAtzera.setBounds(25, 24, 50, 23);
+		add(btnAtzera);
 
 		// ATZEKO ARGAZKIA
 		JLabel labelConImagen = new JLabel();
 		labelConImagen.setBounds(0, 0, 500, 500);
-		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/fondo2.jpg")));
+		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/fondoBlanco.jpg")));
 		add(labelConImagen);
 
 
 	}
-
 }

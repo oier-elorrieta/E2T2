@@ -7,11 +7,12 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class Profil_Berria extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-
+	public JButton btnAtzera;
 	/**
 	 * Create the panel.
 	 */
@@ -75,6 +76,10 @@ public class Profil_Berria extends JPanel {
 		textField_2.setColumns(10);
 		textField_2.setBounds(151, 298, 123, 46);
 		panel_1.add(textField_2);
+		
+		btnAtzera = new JButton("X");
+		btnAtzera.setBounds(20, 11, 50, 23);
+		add(btnAtzera);
 
 		JLabel labelConImagen = new JLabel();
 		labelConImagen.setBounds(0, 0, 500, 500);
@@ -112,5 +117,4 @@ public class Profil_Berria extends JPanel {
 
 		}
 	}
-
 }
