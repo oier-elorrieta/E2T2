@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class Bidai_Agentzia {
+public class Ongi_etorri {
 
 	private JFrame frame;
 
@@ -15,7 +15,7 @@ public class Bidai_Agentzia {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Bidai_Agentzia window = new Bidai_Agentzia();
+					Ongi_etorri window = new Ongi_etorri();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,7 +27,7 @@ public class Bidai_Agentzia {
 	/**
 	 * Create the application.
 	 */
-	public Bidai_Agentzia() {
+	public Ongi_etorri() {
 		initialize();
 	}
 
