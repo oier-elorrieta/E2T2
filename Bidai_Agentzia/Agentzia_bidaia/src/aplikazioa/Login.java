@@ -54,7 +54,7 @@ public class Login {
 
         JPanel panel_1 = new JPanel();
         panel_1.setBounds(0, 139, 705, 143);
-        panel_1.setBackground(new Color(255, 255, 255, 120));
+        panel_1.setBackground(new Color(255, 255, 255, 200));
         frame.getContentPane().add(panel_1);
 
         frame.getContentPane().setComponentZOrder(labelConImagen, frame.getContentPane().getComponentCount() - 1);
