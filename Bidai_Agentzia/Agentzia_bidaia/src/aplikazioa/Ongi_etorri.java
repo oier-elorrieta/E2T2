@@ -49,22 +49,22 @@ public class Ongi_etorri {
 		
 		 
 		 //AURRERA LOGIN BOTOIA
-		 JButton btnNewButton = new JButton("Loging");
-		 btnNewButton.setForeground(new Color(255, 255, 255));
-		 btnNewButton.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 15));
-		 btnNewButton.setBackground(new Color(69, 116, 70));
-	     btnNewButton.addActionListener(new ActionListener() {
+		 JButton btnLoging = new JButton("Loging");
+		 btnLoging.setForeground(new Color(255, 255, 255));
+		 btnLoging.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 15));
+		 btnLoging.setBackground(new Color(69, 116, 70));
+	     btnLoging.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
         });
         
-        JLabel lblNewLabel = new JLabel("ONGI ETORRI!!");
-        lblNewLabel.setFont(new Font("Source Sans Pro Semibold", Font.PLAIN, 23));
-        lblNewLabel.setBounds(181, 241, 145, 44);
-        frame.getContentPane().add(lblNewLabel);
+        JLabel lblOngiEtorri = new JLabel("ONGI ETORRI!!");
+        lblOngiEtorri.setFont(new Font("Source Sans Pro Semibold", Font.PLAIN, 23));
+        lblOngiEtorri.setBounds(181, 241, 145, 44);
+        frame.getContentPane().add(lblOngiEtorri);
         
-        btnNewButton.setBounds(181, 316, 139, 39);
-        frame.getContentPane().add(btnNewButton);
+        btnLoging.setBounds(181, 316, 139, 39);
+        frame.getContentPane().add(btnLoging);
 	        
 	    //ATZEKO ARGAZKIA
 		JLabel labelConImagen = new JLabel();

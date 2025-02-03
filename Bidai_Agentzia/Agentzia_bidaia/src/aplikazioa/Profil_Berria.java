@@ -48,17 +48,10 @@ public class Profil_Berria {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
-        JLabel labelConImagen = new JLabel();
-        labelConImagen.setBounds(0, 0, 705, 426);
-        labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/fondo2.jpg")));
-        frame.getContentPane().add(labelConImagen);
-
         JPanel panel_1 = new JPanel();
         panel_1.setBounds(197, 32, 296, 363);
         panel_1.setBackground(new Color(255, 255, 255, 120));
         frame.getContentPane().add(panel_1);
-
-        frame.getContentPane().setComponentZOrder(labelConImagen, frame.getContentPane().getComponentCount() - 1);
         frame.getContentPane().setComponentZOrder(panel_1, 0);
         panel_1.setLayout(null);
 
@@ -111,6 +104,13 @@ public class Profil_Berria {
         textField_2.setColumns(10);
         textField_2.setBounds(151, 298, 123, 46);
         panel_1.add(textField_2);
+        
+                JLabel labelConImagen = new JLabel();
+                labelConImagen.setBounds(0, 0, 705, 426);
+                labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/fondo2.jpg")));
+                frame.getContentPane().add(labelConImagen);
+                
+                        frame.getContentPane().setComponentZOrder(labelConImagen, frame.getContentPane().getComponentCount() - 1);
 /* ESTO DEBE SER DESDE LA DATU BASE */
         String[] paises = {
             "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", 

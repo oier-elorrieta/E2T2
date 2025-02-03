@@ -47,17 +47,10 @@ public class Login {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
-        JLabel labelConImagen = new JLabel();
-        labelConImagen.setBounds(0, 0, 705, 426);
-        labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/fondo2.jpg")));
-        frame.getContentPane().add(labelConImagen);
-
         JPanel panel_1 = new JPanel();
         panel_1.setBounds(0, 139, 705, 143);
         panel_1.setBackground(new Color(255, 255, 255, 200));
         frame.getContentPane().add(panel_1);
-
-        frame.getContentPane().setComponentZOrder(labelConImagen, frame.getContentPane().getComponentCount() - 1);
         frame.getContentPane().setComponentZOrder(panel_1, 0);
         panel_1.setLayout(null);
 
@@ -86,6 +79,13 @@ public class Login {
         JButton btnAgentzia_berri = new JButton("Agentzia berria");
         btnAgentzia_berri.setBounds(358, 105, 130, 28);
         panel_1.add(btnAgentzia_berri);
+        
+                JLabel labelConImagen = new JLabel();
+                labelConImagen.setBounds(0, 0, 705, 426);
+                labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/fondo2.jpg")));
+                frame.getContentPane().add(labelConImagen);
+                
+                        frame.getContentPane().setComponentZOrder(labelConImagen, frame.getContentPane().getComponentCount() - 1);
 
  
         btnAgentzia_berri.addActionListener(e -> {
