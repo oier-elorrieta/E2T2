@@ -2,7 +2,14 @@ package aplikazioa;
 
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
 
 public class Ongi_etorri {
 
@@ -36,8 +43,37 @@ public class Ongi_etorri {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 917, 564);
+		frame.setBounds(100, 100, 518, 534);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		 
+		 //AURRERA LOGIN BOTOIA
+		 JButton btnNewButton = new JButton("Loging");
+		 btnNewButton.setForeground(new Color(255, 255, 255));
+		 btnNewButton.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 15));
+		 btnNewButton.setBackground(new Color(69, 116, 70));
+	     btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        
+        JLabel lblNewLabel = new JLabel("ONGI ETORRI!!");
+        lblNewLabel.setFont(new Font("Source Sans Pro Semibold", Font.PLAIN, 23));
+        lblNewLabel.setBounds(181, 241, 145, 44);
+        frame.getContentPane().add(lblNewLabel);
+        
+        btnNewButton.setBounds(181, 316, 139, 39);
+        frame.getContentPane().add(btnNewButton);
+	        
+	    //ATZEKO ARGAZKIA
+		JLabel labelConImagen = new JLabel();
+	    labelConImagen.setBounds(0, 0, 502, 500);
+	    labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/ongietorri.jpg")));
+	    frame.getContentPane().add(labelConImagen);
+	        
+	        
+	        
+	       
 	}
-
 }
