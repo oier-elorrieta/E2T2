@@ -1,7 +1,6 @@
 package Inicio;
 
 import java.awt.EventQueue;
-
 import controlador.Controlador;
 import vista.Principal;
 

@@ -13,6 +13,7 @@ public class Bidai_berria extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	public JButton btnAtzera;
+	public JButton btnGorde;
 
 	/**
 	 * Create the panel.
@@ -45,11 +46,17 @@ public class Bidai_berria extends JPanel {
 		comboBox.addItem("Bidai Ostatua");
 
 		JLabel lblNewLabel_2 = new JLabel("Bidai hasiera");
-		lblNewLabel_2.setBounds(40, 120, 89, 14);
+		lblNewLabel_2.setBounds(40, 112, 89, 14);
 		panel_1.add(lblNewLabel_2);
 
+		JLabel lblNewLabel_2_2 = new JLabel("Bidai amaiera");
+
+		lblNewLabel_2_2.setBounds(40, 151, 89, 14);
+
+		panel_1.add(lblNewLabel_2_2);
+
 		JLabel lblNewLabel_3 = new JLabel("Herrialdea");
-		lblNewLabel_3.setBounds(40, 176, 89, 14);
+		lblNewLabel_3.setBounds(40, 188, 89, 14);
 		panel_1.add(lblNewLabel_3);
 
 		JComboBox<String> comboBox_1 = new JComboBox<>();
@@ -57,7 +64,7 @@ public class Bidai_berria extends JPanel {
 		panel_1.add(comboBox_1);
 
 		JLabel lblNewLabel_4 = new JLabel("Deskribapena");
-		lblNewLabel_4.setBounds(40, 216, 89, 14);
+		lblNewLabel_4.setBounds(40, 232, 89, 14);
 		panel_1.add(lblNewLabel_4);
 
 		JTextField textField_1 = new JTextField();
@@ -81,6 +88,10 @@ public class Bidai_berria extends JPanel {
 		btnAtzera = new JButton("X");
 		btnAtzera.setBounds(10, 11, 50, 23);
 		add(btnAtzera);
+
+		btnGorde = new JButton("Gorde");
+		btnGorde.setBounds(59, 432, 61, 23);
+		add(btnGorde);
 
 		JLabel labelConImagen = new JLabel();
 		labelConImagen.setBounds(0, 0, 500, 500);

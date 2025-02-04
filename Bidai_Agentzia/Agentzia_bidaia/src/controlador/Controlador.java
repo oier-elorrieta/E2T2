@@ -74,6 +74,11 @@ public class Controlador {
 			}
 		});
 		
+		ventanaPrincipal.bidai_Berria.btnGorde.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("BidaiEkitaldia");
+			}
+		});
 		
 		/*
 		 * login pilla los datos de los text fields de erabiltzaile y pasahitza Acce de
