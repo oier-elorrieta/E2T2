@@ -18,16 +18,27 @@ public class Controlador {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.verPaneles("Login");
 			}
-			
 		});
 
-		ventanaPrincipal.login.btnAgentzia_berri.addActionListener(new ActionListener() {
+		ventanaPrincipal.login.btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ventanaPrincipal.verPaneles("ProfilBerria");
+				ventanaPrincipal.verPaneles("BidaiEkitaldia");
+			}
+		});
+
+		ventanaPrincipal.bidai_Berria.btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("BidaiEkitaldia");
+			}
+		});
+
+		ventanaPrincipal.profil_Berria.btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("Login");
 			}
 		});
 		
-		ventanaPrincipal.profil_Berria.btnAtzera.addActionListener(new ActionListener() {
+		ventanaPrincipal.bidai_Ekitaldi.btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.verPaneles("Login");
 			}
@@ -38,13 +49,37 @@ public class Controlador {
 				ventanaPrincipal.verPaneles("OngiEtorri");
 			}
 		});
+
+		ventanaPrincipal.profil_Berria.btnGorde.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("BidaiEkitaldia");
+			}
+		});
 		
-		/*login
-		pilla los datos de los text fields de erabiltzaile y pasahitza
-		Acce de a la BBDD con esos datos
-		Si es error saca por pantalla
-		si ok pasa al Panel bidaiak
-		*/
+		ventanaPrincipal.profil_Berria.btnUtzi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("Login");
+			}
+		});
+		
+		ventanaPrincipal.login.btnAgentzia_berri.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("ProfilBerria");
+			}
+		});
+		
+		ventanaPrincipal.bidai_Ekitaldi.btnBidaiBerri.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("BidaiBerria");
+			}
+		});
+		
+		
+		/*
+		 * login pilla los datos de los text fields de erabiltzaile y pasahitza Acce de
+		 * a la BBDD con esos datos Si es error saca por pantalla si ok pasa al Panel
+		 * bidaiak
+		 */
 	}
 
 }

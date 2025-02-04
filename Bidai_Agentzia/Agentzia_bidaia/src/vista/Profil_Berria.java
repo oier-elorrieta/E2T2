@@ -1,120 +1,130 @@
 package vista;
 
 import java.awt.Color;
-
+import java.awt.EventQueue;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Profil_Berria extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	public JButton btnGorde;
+	public JButton btnUtzi;
 	public JButton btnAtzera;
+	
+
 	/**
 	 * Create the panel.
 	 */
 	public Profil_Berria() {
-		setLayout(null);
 
 		setBounds(100, 100, 500, 500);
+		setLayout(null);
+
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(112, 53, 296, 363);
-		panel_1.setBackground(new Color(255, 255, 255, 120));
+		panel_1.setBounds(54, 56, 395, 327);
+		panel_1.setBackground(new Color(171, 209, 181));
 		add(panel_1);
-		setComponentZOrder(panel_1, 0);
 		panel_1.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Bidai berria");
-		lblNewLabel.setBounds(40, 40, 89, 14);
-		panel_1.add(lblNewLabel);
+		JLabel lblNewLabel_1 = new JLabel("AGENTZIA BERRIA");
+		lblNewLabel_1.setBounds(112, 11, 165, 31);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Bernard MT Condensed", Font.PLAIN, 25));
+		panel_1.add(lblNewLabel_1);
 
 		JTextField textField = new JTextField();
-		textField.setBounds(151, 37, 123, 20);
+		textField.setBounds(189, 53, 140, 20);
 		panel_1.add(textField);
 		textField.setColumns(10);
 
-		JLabel lblNewLabel_1 = new JLabel("Bidai mota");
-		lblNewLabel_1.setBounds(40, 77, 74, 14);
-		panel_1.add(lblNewLabel_1);
-
-		JComboBox<String> comboBox = new JComboBox<>();
-		comboBox.setBounds(151, 73, 123, 22);
-		panel_1.add(comboBox);
-
-		comboBox.addItem("Bidai Simplea");
-		comboBox.addItem("Bidai Ostatua");
-
-		JLabel lblNewLabel_2 = new JLabel("Bidai hasiera");
-		lblNewLabel_2.setBounds(40, 119, 89, 14);
+		JLabel lblNewLabel_2 = new JLabel("Markaren kolorea");
+		lblNewLabel_2.setBounds(73, 103, 83, 14);
 		panel_1.add(lblNewLabel_2);
 
-		JLabel lblNewLabel_3 = new JLabel("Herrialdea");
-		lblNewLabel_3.setBounds(40, 193, 89, 14);
-		panel_1.add(lblNewLabel_3);
-
-		JComboBox<String> comboBox_1 = new JComboBox<>();
-		comboBox_1.setBounds(151, 189, 123, 22);
-		panel_1.add(comboBox_1);
-
-		JLabel lblNewLabel_4 = new JLabel("Deskribapena");
-		lblNewLabel_4.setBounds(40, 240, 89, 14);
-		panel_1.add(lblNewLabel_4);
-
 		JTextField textField_1 = new JTextField();
-		textField_1.setBounds(151, 237, 123, 46);
+		textField_1.setBounds(189, 244, 140, 20);
 		panel_1.add(textField_1);
 		textField_1.setColumns(10);
 
-		JLabel lblNewLabel_5 = new JLabel("Zerbitzuetan ez");
-		lblNewLabel_5.setBounds(40, 292, 89, 32);
+		JLabel lblNewLabel_3 = new JLabel("Langile kopurua");
+		lblNewLabel_3.setBounds(73, 150, 75, 14);
+		panel_1.add(lblNewLabel_3);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(189, 147, 140, 20);
+		panel_1.add(comboBox);
+
+		comboBox.addItem("2 eta 10 langile artean");
+		comboBox.addItem("10 eta 100 langile artean");
+		comboBox.addItem("100 eta 1000 langile artean");
+
+		JLabel lblNewLabel_4 = new JLabel("Agentzia mota");
+		lblNewLabel_4.setBounds(73, 198, 69, 14);
+		panel_1.add(lblNewLabel_4);
+
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(189, 194, 140, 22);
+		panel_1.add(comboBox_1);
+
+		comboBox.addItem("Bidai Agentzia");
+
+		JLabel lblNewLabel_5 = new JLabel("Logoa");
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setBounds(73, 244, 29, 14);
 		panel_1.add(lblNewLabel_5);
 
-		JTextField textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(151, 298, 123, 46);
-		panel_1.add(textField_2);
-		
+        JPanel colorPanel_1 = new JPanel();
+        colorPanel_1.setBounds(296, 103, 55, 20);
+        colorPanel_1.setBackground(Color.WHITE);
+        panel_1.add(colorPanel_1);
+
+        // 🔹 Botón para abrir la paleta de colores
+        JButton colorButton = new JButton("Kolorea erabaki");
+        colorButton.setBounds(189, 99, 97, 23);
+        panel_1.add(colorButton);
+
+        colorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Color selectedColor = JColorChooser.showDialog(panel_1, "Elige un color", colorPanel_1.getBackground());
+                if (selectedColor != null) {
+                    colorPanel_1.setBackground(selectedColor);
+                    textField_1.setText("#" + Integer.toHexString(selectedColor.getRGB()).substring(2).toUpperCase());
+                }
+            }
+        });
+
+		JLabel lblNewLabel = new JLabel("Agentzia Izena");
+		lblNewLabel.setBounds(73, 56, 72, 14);
+		panel_1.add(lblNewLabel);
+
+		btnGorde = new JButton("Gorde");
+		btnGorde.setBounds(72, 284, 61, 23);
+		panel_1.add(btnGorde);
+
+		btnUtzi = new JButton("Utzi");
+		btnUtzi.setBounds(143, 284, 51, 23);
+		panel_1.add(btnUtzi);
+
 		btnAtzera = new JButton("X");
-		btnAtzera.setBounds(20, 11, 50, 23);
+		btnAtzera.setBounds(10, 11, 50, 23);
 		add(btnAtzera);
 
 		JLabel labelConImagen = new JLabel();
 		labelConImagen.setBounds(0, 0, 500, 500);
-		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/fondo2.jpg")));
+		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
 		add(labelConImagen);
 
-		setComponentZOrder(labelConImagen, getComponentCount() - 1);
-		/* ESTO DEBE SER DESDE LA DATU BASE */
-		String[] paises = { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda",
-				"Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas",
-				"Bangladés", "Barbados", "Baréin", "Belice", "Benín", "Bielorrusia", "Birmania", "Bosnia y Herzegovina",
-				"Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya",
-				"Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Colombia", "Comoras",
-				"Congo (República del)", "Corea del Norte", "Corea del Sur", "Costa Rica", "Croacia", "Cuba", "Curazao",
-				"Chipre", "Dominica", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia",
-				"Eslovenia", "España", "Estados Unidos", "Estonia", "Esuatini", "Etiopía", "Fiyi", "Filipinas",
-				"Finlandia", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala",
-				"Guinea", "Guinea-Bisáu", "Guyana", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak",
-				"Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica",
-				"Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kosovo", "Kuwait", "Laos",
-				"Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo",
-				"Madagascar", "Malawi", "Malasia", "Malaui", "Maldivas", "Mali", "Malta", "Marruecos", "Mauricio",
-				"Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique",
-				"Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán",
-				"Pakistán", "Palau", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal",
-				"Puerto Rico", "Qatar", "Rumanía", "Rusia", "Ruanda", "San Cristóbal y Nieves", "San Marino",
-				"San Vicente y las Granadinas", "Santa Lucía", "Senegal", "Serbia", "Seychelles", "Sierra Leona",
-				"Singapur", "Siria", "Somalia", "Sri Lanka", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza",
-				"Surinam", "Siria", "Taiwán", "Tanzania", "Tailandia", "Togo", "Tonga", "Trinidad y Tobago", "Túnez",
-				"Turkmenistán", "Turquía", "Tuvalu", "Uganda", "Ucrania", "Uruguay", "Vanuatu", "Venezuela", "Vietnam",
-				"Yemen", "Yibuti", "Zambia", "Zimbabue" };
-
-		for (String pais : paises) {
-			comboBox_1.addItem(pais);
-
-		}
 	}
 }

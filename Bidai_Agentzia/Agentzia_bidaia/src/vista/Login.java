@@ -11,6 +11,7 @@ public class Login extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	public JButton btnAgentzia_berri;
+	public JButton btnLogin;
 	public JButton btnAtzera;
 	/**
 	 * Create the panel.
@@ -41,7 +42,7 @@ public class Login extends JPanel {
 		add(textField_1);
 
 		// LOGIN BOTOIA
-		JButton btnLogin = new JButton("Log in");
+		btnLogin = new JButton("Log in");
 		btnLogin.setBounds(132, 274, 122, 28);
 		add(btnLogin);
 
@@ -56,7 +57,7 @@ public class Login extends JPanel {
 		add(panel);
 		
 		btnAtzera = new JButton("X");
-		btnAtzera.setBounds(25, 24, 50, 23);
+		btnAtzera.setBounds(10, 11, 50, 23);
 		add(btnAtzera);
 
 		// ATZEKO ARGAZKIA
