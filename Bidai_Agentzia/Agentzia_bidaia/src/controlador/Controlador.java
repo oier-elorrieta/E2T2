@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 
 import vista.Principal;
 
@@ -16,13 +19,28 @@ public class Controlador {
 
 		ventanaPrincipal.ongi_Etorri.btnLoging.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ventanaPrincipal.verPaneles("Login");
+			ventanaPrincipal.verPaneles("Login");
 			}
+
+			
 		});
 
-		ventanaPrincipal.login.btnLogin.addActionListener(new ActionListener() {
+		ventanaPrincipal.login.getBtnLogin().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
+				String izena= ventanaPrincipal.login.getIzena().getText();
+				String pasahitza= ventanaPrincipal.login.getPasahitza().getText();
+				
+				if(izena.equals("admin") && pasahitza.equals("admin")) {
+					JOptionPane.showMessageDialog(null, "Ongi etorri", null, JOptionPane.INFORMATION_MESSAGE);
 				ventanaPrincipal.verPaneles("BidaiEkitaldia");
+			
+			
+			}else {
+				JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "ERROR",
+				JOptionPane.ERROR_MESSAGE);
+				
+				}
 			}
 		});
 
@@ -44,7 +62,7 @@ public class Controlador {
 			}
 		});
 		
-		ventanaPrincipal.login.btnAtzera.addActionListener(new ActionListener() {
+		ventanaPrincipal.login.getBtnAtzera().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.verPaneles("OngiEtorri");
 			}
@@ -62,7 +80,7 @@ public class Controlador {
 			}
 		});
 		
-		ventanaPrincipal.login.btnAgentzia_berri.addActionListener(new ActionListener() {
+		ventanaPrincipal.login.getBtnAgentzia_berri().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.verPaneles("ProfilBerria");
 			}
@@ -86,5 +104,6 @@ public class Controlador {
 		 * bidaiak
 		 */
 	}
+
 
 }

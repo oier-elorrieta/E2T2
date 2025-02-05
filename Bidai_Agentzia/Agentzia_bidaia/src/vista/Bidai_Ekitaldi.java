@@ -42,7 +42,7 @@ public class Bidai_Ekitaldi extends JPanel {
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(32, 44, 428, 358);
-		panel_1.setBackground(new Color(255, 255, 255, 150));
+		panel_1.setBackground(new Color(111, 147, 102));
 		add(panel_1);
 		panel_1.setLayout(null);
 		table_ekitaldiak = new JTable();
@@ -62,33 +62,38 @@ public class Bidai_Ekitaldi extends JPanel {
 		panel_1.add(lblEkitaldiak);
 
 		btnBidaiBerri = new JButton("Bidai berria");
-		btnBidaiBerri.setBounds(209, 323, 85, 23);
-		panel_1.add(btnBidaiBerri);
-		
-		btnEkitaldiBerri = new JButton("Ekitaldi berria");
-		btnEkitaldiBerri.setBounds(299, 323, 102, 23);
-		panel_1.add(btnEkitaldiBerri);
-
-		JButton btnNewButton_1 = new JButton("Sortu bezero-eskaintza");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnBidaiBerri.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setBounds(34, 323, 153, 23);
-		panel_1.add(btnNewButton_1);
+		btnBidaiBerri.setBounds(195, 323, 99, 23);
+		panel_1.add(btnBidaiBerri);
+		
+		btnEkitaldiBerri = new JButton("Ekitaldi berria");
+		btnEkitaldiBerri.setBounds(299, 323, 119, 23);
+		panel_1.add(btnEkitaldiBerri);
 		
 		table_bidaiak = new JTable();
 		table_bidaiak.setBounds(34, 47, 367, 104);
 		panel_1.add(table_bidaiak);
 		
+				JButton btnNewButton_1 = new JButton("Sortu bezero-eskaintza");
+				btnNewButton_1.setBounds(10, 323, 165, 23);
+				panel_1.add(btnNewButton_1);
+				btnNewButton_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+					}
+				});
+		
 		btnAtzera = new JButton("X");
+		btnAtzera.setBackground(new Color(111, 147, 102));
 		btnAtzera.setBounds(10, 11, 50, 23);
 		add(btnAtzera);
-		
-		JLabel labelConImagen = new JLabel();
-		labelConImagen.setBounds(00, 00, 500, 500);
-		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
-		add(labelConImagen);
+				
+				JLabel labelConImagen = new JLabel();
+				labelConImagen.setBounds(00, 00, 500, 500);
+				labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
+				add(labelConImagen);
 
 	}
 }

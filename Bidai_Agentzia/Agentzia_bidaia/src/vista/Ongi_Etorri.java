@@ -39,7 +39,7 @@ public class Ongi_Etorri extends JPanel {
 		// ONGI EOTRRI LABELA
 		JLabel lblOngiEtorri = new JLabel("ONGI ETORRI!!!");
 		lblOngiEtorri.setFont(new Font("Source Sans Pro Semibold", Font.PLAIN, 23));
-		lblOngiEtorri.setBounds(176, 225, 152, 44);
+		lblOngiEtorri.setBounds(161, 234, 176, 44);
 		add(lblOngiEtorri);
 
 		btnLoging.setBounds(176, 315, 139, 39);
