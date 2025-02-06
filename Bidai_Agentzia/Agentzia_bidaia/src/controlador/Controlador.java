@@ -132,6 +132,24 @@ public class Controlador {
 			}
 		});
 		
+		ventanaPrincipal.ekitaldi_Berria.btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("BidaiEkitaldia");
+			}
+		});
+		
+		ventanaPrincipal.ekitaldi_Berria.btnOstatua.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("Ostatua");
+			}
+		});
+		
+		ventanaPrincipal.bidai_Ekitaldi.btnEkitaldiBerri.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("EkitaldiBerria");
+			}
+		});
+		
 		/*private void AgentziaDatuak(int agentzia_id, String izena, String logoa, String marka_kolore, String erabiltzaile, String pasahitza, int agentzia_kod, int langile_kod) {
 	       
 			Connection conexion =  Conexion_DB.conectar();
