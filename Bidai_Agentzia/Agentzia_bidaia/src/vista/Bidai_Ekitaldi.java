@@ -30,6 +30,7 @@ public class Bidai_Ekitaldi extends JPanel {
 	public JButton btnAtzera;
 	public JButton btnBidaiBerri;
 	public JButton btnEkitaldiBerri;
+	public JButton btnEzabatu;
 
 	/**
 	 * Create the panel.
@@ -77,23 +78,27 @@ public class Bidai_Ekitaldi extends JPanel {
 		table_bidaiak.setBounds(34, 47, 367, 104);
 		panel_1.add(table_bidaiak);
 		
-				JButton btnNewButton_1 = new JButton("Sortu bezero-eskaintza");
-				btnNewButton_1.setBounds(10, 323, 165, 23);
-				panel_1.add(btnNewButton_1);
-				btnNewButton_1.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-					}
-				});
+		btnEzabatu = new JButton("New button");
+		btnEzabatu.setBounds(34, 323, 89, 23);
+		panel_1.add(btnEzabatu);
 		
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
 		btnAtzera.setBounds(10, 11, 50, 23);
 		add(btnAtzera);
 				
-				JLabel labelConImagen = new JLabel();
-				labelConImagen.setBounds(00, 00, 500, 500);
-				labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
-				add(labelConImagen);
+						JButton btnNewButton_1 = new JButton("Sortu bezero-eskaintza");
+						btnNewButton_1.setBounds(73, 422, 165, 23);
+						add(btnNewButton_1);
+						
+						JLabel labelConImagen = new JLabel();
+						labelConImagen.setBounds(00, 00, 500, 500);
+						labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
+						add(labelConImagen);
+						btnNewButton_1.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+							}
+						});
 
 	}
 }

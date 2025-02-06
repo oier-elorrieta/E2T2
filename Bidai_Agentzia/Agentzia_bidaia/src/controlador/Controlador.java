@@ -5,9 +5,6 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-
-import Inicio.Conexion_DB;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -51,7 +48,7 @@ public class Controlador {
 
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");
-					Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:2025/db_bidai_agentzia",
+					Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/db_bidai_agentzia",
 							"root", "");
 					Statement sentencia = conexion.createStatement();
 					String sql = "SELECT * FROM agentzia WHERE erabiltzailea = '" + izena + "' AND pasahitza= '"
@@ -133,13 +130,47 @@ public class Controlador {
 			}
 		});
 
+		/*ventanaPrincipal.bidai_Ekitaldi.btnEzabatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("BidaiEkitaldia");
+			
+				ezabatu();
+			}
+		});*/
+		
 		/*
 		 * login pilla los datos de los text fields de erabiltzaile y pasahitza Acce de
 		 * a la BBDD con esos datos Si es error saca por pantalla si ok pasa al Panel
 		 * bidaiak
 		 */
 		
-		private void AgentziaDatuak(int agentzia_id, String izena, String logoa, String marka_kolore, String erabiltzaile, String pasahitza, int agentzia_kod, int langile_kod) {
+		/*private void ezabatu() {
+			produktua.getRowCount();
+			if (produktua.getRowCount() > 0) {
+				int borrar = table1.getSelectedRow();
+				produktua.removeRow(borrar);
+			} else {
+				JOptionPane.showMessageDialog(null, "Ez daude ezabatzeko produkturik", "Errorea",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
+
+		
+		ezabatuboton.addActionListener(new ActionListener() {
+			
+
+		});
+		panelTaula.add(ezabatuboton);
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+	/*	private void AgentziaDatuak(int agentzia_id, String izena, String logoa, String marka_kolore, String erabiltzaile, String pasahitza, int agentzia_kod, int langile_kod) {
 	       
 			Connection conexion =  Conexion_DB.conectar();
 	            
@@ -162,8 +193,7 @@ public class Controlador {
 	                JOptionPane.showMessageDialog(null, "Error al guardar: " + ex.getMessage());
 	            }
 	        
-		}
-		
+		}*/		
 	}
 
 }
