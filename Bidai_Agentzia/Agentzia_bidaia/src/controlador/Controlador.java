@@ -2,6 +2,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+
 import javax.swing.*;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -129,48 +131,8 @@ public class Controlador {
 				ventanaPrincipal.verPaneles("BidaiEkitaldia");
 			}
 		});
-
-		/*ventanaPrincipal.bidai_Ekitaldi.btnEzabatu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ventanaPrincipal.verPaneles("BidaiEkitaldia");
-			
-				ezabatu();
-			}
-		});*/
 		
-		/*
-		 * login pilla los datos de los text fields de erabiltzaile y pasahitza Acce de
-		 * a la BBDD con esos datos Si es error saca por pantalla si ok pasa al Panel
-		 * bidaiak
-		 */
-		
-		/*private void ezabatu() {
-			produktua.getRowCount();
-			if (produktua.getRowCount() > 0) {
-				int borrar = table1.getSelectedRow();
-				produktua.removeRow(borrar);
-			} else {
-				JOptionPane.showMessageDialog(null, "Ez daude ezabatzeko produkturik", "Errorea",
-						JOptionPane.INFORMATION_MESSAGE);
-			}
-		}
-
-		
-		ezabatuboton.addActionListener(new ActionListener() {
-			
-
-		});
-		panelTaula.add(ezabatuboton);
-		*/
-		
-		
-		
-		
-		
-		
-		
-		
-	/*	private void AgentziaDatuak(int agentzia_id, String izena, String logoa, String marka_kolore, String erabiltzaile, String pasahitza, int agentzia_kod, int langile_kod) {
+		/*private void AgentziaDatuak(int agentzia_id, String izena, String logoa, String marka_kolore, String erabiltzaile, String pasahitza, int agentzia_kod, int langile_kod) {
 	       
 			Connection conexion =  Conexion_DB.conectar();
 	            
@@ -193,7 +155,9 @@ public class Controlador {
 	                JOptionPane.showMessageDialog(null, "Error al guardar: " + ex.getMessage());
 	            }
 	        
-		}*/		
+		}*/
+	
+	 
 	}
 
 }

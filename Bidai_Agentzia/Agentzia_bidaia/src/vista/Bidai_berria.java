@@ -1,6 +1,10 @@
 package vista;
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -14,6 +18,7 @@ public class Bidai_berria extends JPanel {
 	private static final long serialVersionUID = 1L;
 	public JButton btnAtzera;
 	public JButton btnGorde;
+	public JComboBox comboBox_1;
 
 	/**
 	 * Create the panel.
@@ -63,7 +68,7 @@ public class Bidai_berria extends JPanel {
 		lblNewLabel_3.setBounds(40, 176, 89, 14);
 		panel_1.add(lblNewLabel_3);
 
-		JComboBox<String> comboBox_1 = new JComboBox<>();
+		comboBox_1 = new JComboBox<>();
 		comboBox_1.setBounds(167, 172, 155, 22);
 		panel_1.add(comboBox_1);
 
@@ -108,7 +113,9 @@ public class Bidai_berria extends JPanel {
 		add(labelConImagen);
 
 		/* ESTO DEBE SER DESDE LA DATU BASE */
-		String[] paises = { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda",
+		
+		/* String[] paises = { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda",
+		 
 				"Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas",
 				"Bangladés", "Barbados", "Baréin", "Belice", "Benín", "Bielorrusia", "Birmania", "Bosnia y Herzegovina",
 				"Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya",
@@ -135,6 +142,30 @@ public class Bidai_berria extends JPanel {
 		for (String pais : paises) {
 			comboBox_1.addItem(pais);
 
-		}
-	}
+		}*/
+		
+		HerrialdeakDB();
+    }
+
+    /**
+     * Método para conectar con la base de datos y cargar los países en el JComboBox.
+     */
+    private void HerrialdeakDB() {
+        String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+        String usuario = "root";  
+        String contraseña = "";  
+        String query = "SELECT herrialdea FROM herrialdeak";
+
+        try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+             PreparedStatement ps = conexion.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                comboBox_1.addItem(rs.getString("herrialdea"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+

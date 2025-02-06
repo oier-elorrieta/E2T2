@@ -14,6 +14,10 @@ import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Profil_Berria extends JPanel {
 
@@ -21,8 +25,8 @@ public class Profil_Berria extends JPanel {
 	public JButton btnGorde;
 	public JButton btnUtzi;
 	public JButton btnAtzera;
-	
-
+	public JComboBox comboBox_1;
+	public JComboBox comboBox;
 	/**
 	 * Create the panel.
 	 */
@@ -63,24 +67,18 @@ public class Profil_Berria extends JPanel {
 		lblNewLabel_3.setBounds(48, 150, 83, 14);
 		panel_1.add(lblNewLabel_3);
 
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setBounds(189, 147, 173, 20);
 		panel_1.add(comboBox);
-
-		comboBox.addItem("2 eta 10 langile artean");
-		comboBox.addItem("10 eta 100 langile artean");
-		comboBox.addItem("100 eta 1000 langile artean");
 
 		JLabel lblNewLabel_4 = new JLabel("Agentzia mota");
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
 		lblNewLabel_4.setBounds(48, 198, 83, 14);
 		panel_1.add(lblNewLabel_4);
 
-		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(189, 194, 173, 22);
 		panel_1.add(comboBox_1);
-
-		comboBox.addItem("Bidai Agentzia");
 
 		JLabel lblNewLabel_5 = new JLabel("Logoa");
 		lblNewLabel_5.setForeground(new Color(255, 255, 255));
@@ -132,5 +130,47 @@ public class Profil_Berria extends JPanel {
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
 		add(labelConImagen);
 
+		
+		langileKopDB();
+		agentziaMotaDB();
 	}
+
+    /**
+     * Método para conectar con la base de datos y cargar los países en el JComboBox.
+     */
+    private void langileKopDB() {
+        String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+        String usuario = "root";  
+        String contraseña = "";  
+        String query = "SELECT deskribapena FROM langile_kop";
+
+        try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+             PreparedStatement ps = conexion.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                comboBox.addItem(rs.getString("deskribapena"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void agentziaMotaDB() {
+        String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+        String usuario = "root";  
+        String contraseña = "";  
+        String query = "SELECT deskribapena FROM agentzia_mota";
+
+        try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+             PreparedStatement ps = conexion.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                comboBox_1.addItem(rs.getString("deskribapena"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+
