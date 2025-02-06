@@ -16,6 +16,8 @@ public class Principal extends JFrame {
 	public Profil_Berria profil_Berria;
 	public Ekitaldi_Berria ekitaldi_Berria;
 	public Ostatu_Berria ostatua;
+	public Hegaldia hegaldia;
+	public Beste_Batzuk besteBatzuk;
 
 	public Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,7 +27,18 @@ public class Principal extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
-
+		hegaldia = new Hegaldia();
+		hegaldia.setSize(500, 486);
+		hegaldia.setLocation(0, 0);
+		contentPane.add(hegaldia);
+		hegaldia.setVisible(false);
+		
+		besteBatzuk = new Beste_Batzuk();
+		besteBatzuk.setSize(500, 486);
+		besteBatzuk.setLocation(0, 0);
+		contentPane.add(besteBatzuk);
+		besteBatzuk.setVisible(false);
+		
 		bidai_Berria = new Bidai_berria();
 		bidai_Berria.setSize(500, 486);
 		bidai_Berria.setLocation(0, 0);
@@ -78,6 +91,8 @@ public class Principal extends JFrame {
 		profil_Berria.setVisible(false);
 		ekitaldi_Berria.setVisible(false);
 		ostatua.setVisible(false);
+		hegaldia.setVisible(false);
+		besteBatzuk.setVisible(false);
 		
 		switch (panel) {
 		case "Login":
@@ -100,6 +115,12 @@ public class Principal extends JFrame {
 			break;
 		case "Ostatua":
 			ostatua.setVisible(true);
+			break;
+		case "Hegaldia":
+			hegaldia.setVisible(true);
+			break;
+		case "BesteBatzuk":
+			besteBatzuk.setVisible(true);
 			break;
 		}
 

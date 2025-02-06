@@ -11,6 +11,8 @@ public class Ekitaldi_Berria extends JPanel {
 	private static final long serialVersionUID = 1L;
 	public JButton btnAtzera;
 	public JButton btnOstatua;
+	public JButton btnHegaldia;
+	public JButton btnBesteBatzuk;
 
 	/**
 	 * Create the panel.
@@ -23,13 +25,13 @@ public class Ekitaldi_Berria extends JPanel {
 		btnOstatua.setBounds(196, 98, 89, 23);
 		add(btnOstatua);
 
-		JButton btnNewButton_1 = new JButton("HEGALDIA");
-		btnNewButton_1.setBounds(196, 165, 89, 23);
-		add(btnNewButton_1);
+		btnHegaldia = new JButton("HEGALDIA");
+		btnHegaldia.setBounds(196, 165, 89, 23);
+		add(btnHegaldia);
 
-		JButton btnNewButton_2 = new JButton("BESTE BATZUK");
-		btnNewButton_2.setBounds(186, 232, 111, 23);
-		add(btnNewButton_2);
+		btnBesteBatzuk = new JButton("BESTE BATZUK");
+		btnBesteBatzuk.setBounds(186, 232, 111, 23);
+		add(btnBesteBatzuk);
 
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));

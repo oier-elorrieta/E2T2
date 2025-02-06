@@ -25,11 +25,13 @@ public class Hegaldia extends JPanel {
 		add(btnAtzera);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(111, 145, 102));
 		panel.setBounds(50, 59, 393, 334);
 		add(panel);
 		panel.setLayout(null);
 		
 		JLabel labelConImagen = new JLabel();
+		labelConImagen.setBackground(new Color(111, 145, 102));
 		labelConImagen.setBounds(-43, -58, 500, 500);
 		panel.add(labelConImagen);
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));

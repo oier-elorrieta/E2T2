@@ -91,6 +91,9 @@ public class Agentzia {
 		Bidaiak = bidaiak;
 	}
 	
+	public Agentzia() {
+		super();
+	}
 	
 
 }

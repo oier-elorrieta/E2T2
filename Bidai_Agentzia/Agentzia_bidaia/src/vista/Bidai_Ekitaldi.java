@@ -78,7 +78,8 @@ public class Bidai_Ekitaldi extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 47, 460, 104);
 		panel_1.add(scrollPane);
-
+		
+		//DefaultTableModel modelo = new DefaultTableModel();
 		bidaiakTaula = new JTable();
 		String[] columnNames = {"Bidai", "Edad", "Profesión"};
 		Object[][] data = {
