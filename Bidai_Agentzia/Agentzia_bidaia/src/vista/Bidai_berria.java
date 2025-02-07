@@ -147,9 +147,6 @@ public class Bidai_berria extends JPanel {
 		HerrialdeakDB();
     }
 
-    /**
-     * Método para conectar con la base de datos y cargar los países en el JComboBox.
-     */
     private void HerrialdeakDB() {
         String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
         String usuario = "root";  

@@ -3,7 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-
+import modeloa.Agentzia;
 import javax.swing.*;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -24,7 +24,10 @@ public class Controlador {
 	Principal ventanaPrincipal;
 
 	private int Agentzia;
-
+	private Connection conn;
+	private Agentzia[] agentziak;
+	private int kopurua;
+	
 	public int getAgentzia() {
 		return Agentzia;
 	}
@@ -54,7 +57,7 @@ public class Controlador {
 
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");
-					Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:2025/db_bidai_agentzia",
+					Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/db_bidai_agentzia",
 							"root", "");
 					Statement sentencia = conexion.createStatement();
 					String sql = "SELECT * FROM agentzia WHERE erabiltzailea = '" + izena + "' AND pasahitza= '"
@@ -181,7 +184,15 @@ public class Controlador {
 			}
 		});
 	
-	
+		ventanaPrincipal.profil_Berria.btnGorde.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				agentziaBD();
+			}
+		});
+		
+		
+		
+		
 	  /*private void AgentziaDatuak(int agentzia_id, String izena, String logoa,
 	  String marka_kolore, String erabiltzaile, String pasahitza, int agentzia_kod,
 	  int langile_kod) {
@@ -214,7 +225,66 @@ public class Controlador {
               }
           }
       });*/
-	 
+	 }
+	 public void agentziaBD() {
+	        String sql = "INSERT INTO agentzia (izena, logoa, marka_kolore, erabiltzaile, pasahitza, agentzia_kod, langile_kod) VALUES (?, ?, ?, ?. ?, ?, ?)";
+	        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	            for (int i = 0; i < kopurua; i++) {
+	                pstmt.setString(1, agentziak[i].getIzena());
+	                pstmt.setString(2, agentziak[i].getLogo());
+	                pstmt.setString(3, agentziak[i].getKolorea());
+	                pstmt.setString(4, agentziak[i].getErabiltzailea());
+	                pstmt.setString(5, agentziak[i].getPasahitza());
+	                pstmt.setString(6, agentziak[i].getAgentzia_kod());
+	                pstmt.setString(7, agentziak[i].getLangile_kod());
+	                pstmt.executeUpdate();
+	                
+	                int rowsInserted = pstmt.executeUpdate();
+	                if (rowsInserted > 0) {
+	                    JOptionPane.showMessageDialog(null, "Datos guardados correctamente.");
+	                }
 
-}
+	                conn.close();
+	            }
+	        } catch (SQLException e) {
+	            System.out.println("Bidaiak gordetzeko errorea: " + e.getMessage());
+	        }
+	        Connection conn = Conexion_DB.conectar();
+	        if (conn == null) {
+	            JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos.");
+	            return;
+	        }
+	    }
+	 public int bidaiKopurua() {
+	        return kopurua;
+	    }
+	 
+	    public void cargarBD() {
+	        try {
+	            Statement sentencia = conn.createStatement();
+	            String sql = "SELECT * FROM agentzia";
+	            ResultSet result = sentencia.executeQuery(sql);
+
+	            while (result.next() && kopurua < agentziak.length) {
+	                String izena = result.getString("izena");
+	                String logo = result.getString("logo");
+	                String kolorea = result.getString("kolorea");
+	                String erabiltzailea = result.getString("erabiltzailea");
+	                String pasahitza = result.getString("pasahitza");
+	                String agentzia_kod = result.getString("agentzia_kod");
+	                String langile_kod = result.getString("langile_kod");
+	              
+
+	                Agentzia agentzia = new Agentzia(izena, logo, kolorea, erabiltzailea, pasahitza, agentzia_kod, langile_kod);
+	                agentziak[kopurua++] = agentzia;
+	            }
+
+	            result.close();
+	            sentencia.close();
+	            System.out.println("Datu baseko emailak kargatu dira.");
+	        } catch (SQLException e) {
+	            System.out.println("DB-a kargatzeko errorea: " + e.getMessage());
+	        }
+	    }
+	 
 }

@@ -77,7 +77,7 @@ public class Agentzia {
 	}
 	
 	//KONSTRUKTOREA
-	public Agentzia(int idAgentzia, String izena, String kolorea, String langile_kod, String agentzia_kod, String logo,
+	/*public Agentzia(int idAgentzia, String izena, String kolorea, String langile_kod, String agentzia_kod, String logo,
 			String erabiltzailea, String pasahitza, Bidaia[] bidaiak) {
 		super();
 		this.idAgentzia = idAgentzia;
@@ -89,7 +89,18 @@ public class Agentzia {
 		this.erabiltzailea = erabiltzailea;
 		this.pasahitza = pasahitza;
 		Bidaiak = bidaiak;
+	}*/
+	
+	public Agentzia(String izena, String logo, String kolorea, String erabiltzailea, String pasahitza, String agentziaKod, String langileKod) {
+	    this.izena = izena;
+	    this.logo = logo;
+	    this.kolorea = kolorea;
+	    this.erabiltzailea = erabiltzailea;
+	    this.pasahitza = pasahitza;
+	    this.agentzia_kod = agentziaKod;
+	    this.langile_kod = langileKod;
 	}
+
 	
 	public Agentzia() {
 		super();

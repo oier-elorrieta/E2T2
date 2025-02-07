@@ -17,7 +17,7 @@ public class AgentziaTest {
 
 		bidaiak = new Bidaia[0];
 
-		agentzia = new Agentzia(1, "Euskadi Tours", "Urdina", "L123", "A001", "logo.png", "admin", "1234", bidaiak);
+		//agentzia = new Agentzia(1, "Euskadi Tours", "Urdina", "L123", "A001", "logo.png", "admin", "1234", bidaiak);
 	}
 
 	@Test
