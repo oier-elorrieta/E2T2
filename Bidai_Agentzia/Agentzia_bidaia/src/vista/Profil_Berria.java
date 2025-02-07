@@ -25,8 +25,11 @@ public class Profil_Berria extends JPanel {
 	public JButton btnGorde;
 	public JButton btnUtzi;
 	public JButton btnAtzera;
-	public JComboBox comboBox_1;
-	public JComboBox comboBox;
+	public JComboBox agentzia;
+	public JComboBox langile;
+	private JTextField erabiltzaile, logo, kolorea, pasahitza;
+	
+	
 	/**
 	 * Create the panel.
 	 */
@@ -47,38 +50,38 @@ public class Profil_Berria extends JPanel {
 		lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		panel_1.add(lblNewLabel_1);
 
-		JTextField textField = new JTextField();
-		textField.setBounds(189, 53, 173, 20);
-		panel_1.add(textField);
-		textField.setColumns(10);
+		JTextField izena = new JTextField();
+		izena.setBounds(189, 53, 173, 20);
+		panel_1.add(izena);
+		izena.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("Markaren kolorea");
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2.setBounds(48, 103, 97, 14);
 		panel_1.add(lblNewLabel_2);
 
-		JTextField textField_1 = new JTextField();
-		textField_1.setBounds(189, 244, 173, 20);
-		panel_1.add(textField_1);
-		textField_1.setColumns(10);
+		JTextField logoa = new JTextField();
+		logoa.setBounds(189, 244, 173, 20);
+		panel_1.add(logoa);
+		logoa.setColumns(10);
 
 		JLabel lblNewLabel_3 = new JLabel("Langile kopurua");
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_3.setBounds(48, 150, 83, 14);
 		panel_1.add(lblNewLabel_3);
 
-		comboBox = new JComboBox();
-		comboBox.setBounds(189, 147, 173, 20);
-		panel_1.add(comboBox);
+		langile = new JComboBox();
+		langile.setBounds(189, 147, 173, 20);
+		panel_1.add(langile);
 
 		JLabel lblNewLabel_4 = new JLabel("Agentzia mota");
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
 		lblNewLabel_4.setBounds(48, 198, 83, 14);
 		panel_1.add(lblNewLabel_4);
 
-		comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(189, 194, 173, 22);
-		panel_1.add(comboBox_1);
+		agentzia = new JComboBox();
+		agentzia.setBounds(189, 194, 173, 22);
+		panel_1.add(agentzia);
 
 		JLabel lblNewLabel_5 = new JLabel("Logoa");
 		lblNewLabel_5.setForeground(new Color(255, 255, 255));
@@ -86,10 +89,10 @@ public class Profil_Berria extends JPanel {
 		lblNewLabel_5.setBounds(48, 247, 42, 14);
 		panel_1.add(lblNewLabel_5);
 
-        JPanel colorPanel_1 = new JPanel();
-        colorPanel_1.setBounds(320, 97, 42, 20);
-        colorPanel_1.setBackground(Color.WHITE);
-        panel_1.add(colorPanel_1);
+        JPanel kolorea = new JPanel();
+        kolorea.setBounds(320, 97, 42, 20);
+        kolorea.setBackground(Color.WHITE);
+        panel_1.add(kolorea);
 
         // 🔹 Botón para abrir la paleta de colores
         JButton colorButton = new JButton("Kolorea erabaki");
@@ -99,10 +102,10 @@ public class Profil_Berria extends JPanel {
         colorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Color selectedColor = JColorChooser.showDialog(panel_1, "Elige un color", colorPanel_1.getBackground());
+                Color selectedColor = JColorChooser.showDialog(panel_1, "Elige un color", kolorea.getBackground());
                 if (selectedColor != null) {
-                    colorPanel_1.setBackground(selectedColor);
-                    textField_1.setText("#" + Integer.toHexString(selectedColor.getRGB()).substring(2).toUpperCase());
+                    kolorea.setBackground(selectedColor);
+                    logoa.setText("#" + Integer.toHexString(selectedColor.getRGB()).substring(2).toUpperCase());
                 }
             }
         });
@@ -149,7 +152,7 @@ public class Profil_Berria extends JPanel {
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                comboBox.addItem(rs.getString("deskribapena"));
+                langile.addItem(rs.getString("deskribapena"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -166,7 +169,7 @@ public class Profil_Berria extends JPanel {
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                comboBox_1.addItem(rs.getString("deskribapena"));
+                agentzia.addItem(rs.getString("deskribapena"));
             }
         } catch (Exception e) {
             e.printStackTrace();
