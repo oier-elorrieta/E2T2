@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import com.toedter.calendar.JDateChooser;
 
 public class Ostatu_Berria extends JPanel {
 
@@ -22,8 +23,6 @@ public class Ostatu_Berria extends JPanel {
 	public JButton btnAtzera;
 	public JComboBox ekitaldiMota;
 	public JComboBox logelaMota;
-	private JTextField textField_2;
-	private JTextField textField_3;
 
 	/**
 	 * Create the panel.
@@ -70,7 +69,7 @@ public class Ostatu_Berria extends JPanel {
 		panel.add(lblNewLabel_2);
 
 		// ----------------------------------------------------------------
-		// ------------------LOGELA MOTA COMBO BOX-----------------------------
+		// ------------------LOGELA MOTA COMBO BOX-------------------------
 		// ----------------------------------------------------------------
 		logelaMota = new JComboBox();
 		logelaMota.setBounds(356, 208, 227, 32);
@@ -120,15 +119,16 @@ public class Ostatu_Berria extends JPanel {
 		panel.add(lblNewLabel_6);
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 22));
 
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(711, 180, 227, 32);
-		panel.add(textField_2);
+		// ----------------------------------------------------------------
+		// ------------------IRTEERA DATAK-------------------------
+		// ----------------------------------------------------------------
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(712, 181, 218, 32);
+		panel.add(dateChooser);
 
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(712, 290, 227, 32);
-		panel.add(textField_3);
+		JDateChooser dateChooser_1 = new JDateChooser();
+		dateChooser_1.setBounds(712, 291, 218, 32);
+		panel.add(dateChooser_1);
 
 		// ----------------------------------------------------------------
 		// ----------------------ATZERA BOTOIA-----------------------------
@@ -151,7 +151,7 @@ public class Ostatu_Berria extends JPanel {
 	// ------------------METODO LOGELA MOTA----------------------------
 	// ----------------------------------------------------------------
 	private void logelaMotaDB() {
-		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT deskribapena FROM logela_mota";

@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import com.toedter.calendar.JDateChooser;
 
 public class Bidai_berria extends JPanel {
 
@@ -20,8 +21,6 @@ public class Bidai_berria extends JPanel {
 	public JButton btnAtzera;
 	public JButton btnGorde;
 	public JComboBox comboBox_1;
-	private JTextField textField_3;
-	private JTextField textField_4;
 
 	/**
 	 * Create the panel.
@@ -120,16 +119,14 @@ public class Bidai_berria extends JPanel {
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(132, 62, 167, 36);
 		panel_1.add(lblNewLabel);
-
-		textField_3 = new JTextField();
-		textField_3.setBounds(721, 101, 239, 46);
-		panel_1.add(textField_3);
-		textField_3.setColumns(10);
-
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(721, 224, 239, 46);
-		panel_1.add(textField_4);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(721, 101, 261, 35);
+		panel_1.add(dateChooser);
+		
+		JDateChooser dateChooser_1 = new JDateChooser();
+		dateChooser_1.setBounds(721, 223, 261, 35);
+		panel_1.add(dateChooser_1);
 
 		// ----------------------------------------------------------------
 		// ----------------------ATZERA BOTOIA-----------------------------
@@ -151,7 +148,7 @@ public class Bidai_berria extends JPanel {
 	// ------------------METODO COMBOBOX-----------------------------
 	// ----------------------------------------------------------------
 	private void HerrialdeakDB() {
-		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT herrialdea FROM herrialdeak";

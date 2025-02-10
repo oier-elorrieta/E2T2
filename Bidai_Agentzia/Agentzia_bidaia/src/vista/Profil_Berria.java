@@ -166,7 +166,7 @@ public class Profil_Berria extends JPanel {
 	// ------------------METODO LANGILEAK-----------------------------
 	// ----------------------------------------------------------------
 	private void langileKopDB() {
-		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT deskribapena FROM langile_kop";
@@ -187,7 +187,7 @@ public class Profil_Berria extends JPanel {
 	// ------------------METODO AGENTZIA-----------------------------
 	// ----------------------------------------------------------------
 	private void agentziaMotaDB() {
-		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT deskribapena FROM agentzia_mota";
