@@ -45,7 +45,7 @@ public class Bidai_Ekitaldi extends JPanel {
 		setBounds(100, 100, 1280, 720);
 
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(118, 74, 1085, 553);
+		panel_1.setBounds(77, 54, 1105, 553);
 		panel_1.setBackground(new Color(111, 147, 102));
 		add(panel_1);
 
@@ -139,7 +139,7 @@ public class Bidai_Ekitaldi extends JPanel {
 		add(btnAtzera);
 
 		JLabel labelConImagen = new JLabel();
-		labelConImagen.setBounds(00, 00, 500, 500);
+		labelConImagen.setBounds(00, 00, 1280, 720);
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 		add(labelConImagen);
 

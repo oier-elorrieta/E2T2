@@ -36,6 +36,12 @@ public class Bidai_berria extends JPanel {
 		add(panel_1);
 		setComponentZOrder(panel_1, 0);
 		panel_1.setLayout(null);
+		
+				btnGorde = new JButton("Gorde");
+				btnGorde.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				btnGorde.setBounds(55, 442, 122, 46);
+				panel_1.add(btnGorde);
+				btnGorde.setBackground(new Color(255, 255, 255));
 
 		JTextField textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -111,12 +117,6 @@ public class Bidai_berria extends JPanel {
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(132, 62, 167, 36);
 		panel_1.add(lblNewLabel);
-		
-				btnGorde = new JButton("Gorde");
-				btnGorde.setFont(new Font("Tahoma", Font.PLAIN, 20));
-				btnGorde.setBounds(55, 442, 122, 46);
-				panel_1.add(btnGorde);
-				btnGorde.setBackground(new Color(111, 147, 102));
 				
 				textField_3 = new JTextField();
 				textField_3.setBounds(721, 101, 239, 46);

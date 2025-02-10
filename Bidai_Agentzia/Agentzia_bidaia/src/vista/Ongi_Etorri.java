@@ -24,18 +24,6 @@ public class Ongi_Etorri extends JPanel {
 
 		setBounds(100, 100, 1280, 720);
 
-		// AURRERA LOGIN BOTOIA
-		btnLoging = new JButton("Login");
-		btnLoging.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnLoging.setForeground(new Color(255, 255, 255));
-		btnLoging.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 15));
-		btnLoging.setBackground(new Color(61, 94, 55));
-
-		add(btnLoging);
-
 		// ONGI EOTRRI LABELA
 		JLabel lblOngiEtorri = new JLabel("ONGI ETORRI!!!");
 		lblOngiEtorri.setForeground(new Color(0, 0, 0));
@@ -43,7 +31,11 @@ public class Ongi_Etorri extends JPanel {
 		lblOngiEtorri.setBounds(805, 195, 315, 109);
 		add(lblOngiEtorri);
 
-		btnLoging.setBounds(851, 362, 222, 63);
+		btnLoging = new JButton("Loging");
+		btnLoging.setForeground(new Color(255, 255, 255));
+		btnLoging.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnLoging.setBackground(new Color(111, 145, 102));
+		btnLoging.setBounds(884, 315, 164, 46);
 		add(btnLoging);
 
 		// ATZEKO ARGAZKIA
@@ -53,5 +45,4 @@ public class Ongi_Etorri extends JPanel {
 		add(labelConImagen);
 
 	}
-
 }
