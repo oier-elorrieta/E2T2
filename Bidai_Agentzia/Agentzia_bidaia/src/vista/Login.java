@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JPasswordField;
+import java.awt.Font;
 
 public class Login extends JPanel {
 
@@ -57,44 +58,48 @@ public class Login extends JPanel {
 	public Login() {
 
 		setLayout(null);
-		setBounds(100, 100, 500, 500);
-
-		// AGENTZIA IZENA
-		JLabel lblAgentzia = new JLabel("Agentzia izena");
-		lblAgentzia.setForeground(new Color(255, 255, 255));
-		lblAgentzia.setBounds(147, 182, 84, 14);
-		add(lblAgentzia);
-
-		izena = new JTextField();
-		izena.setBounds(264, 179, 130, 20);
-		add(izena);
-		izena.setColumns(10);
-
-		// PASAHITZA
-		JLabel lblPasahitza = new JLabel("Pasahitza");
-		lblPasahitza.setForeground(new Color(255, 255, 255));
-		lblPasahitza.setBounds(147, 230, 84, 14);
-		add(lblPasahitza);
-
-		// LOGIN BOTOIA
-		btnLogin = new JButton("Log in");
-		btnLogin.setBounds(132, 274, 122, 28);
-		add(btnLogin);
-		
-		// AGENTZIA BERRIA BOTOIA TESTUA
-		btnAgentzia_berri = new JButton("Agentzia berria");
-		btnAgentzia_berri.setBounds(264, 274, 130, 28);
-		add(btnAgentzia_berri);
+		setBounds(100, 100, 1280, 720);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(111, 147, 102));
-		panel.setBounds(84, 108, 350, 256);
+		panel.setBounds(274, 154, 754, 377);
 		add(panel);
 		panel.setLayout(null);
 		
 		pasahitza = new JPasswordField();
-		pasahitza.setBounds(179, 122, 130, 20);
+		pasahitza.setBounds(391, 144, 175, 26);
 		panel.add(pasahitza);
+		
+		// AGENTZIA BERRIA BOTOIA TESTUA
+		btnAgentzia_berri = new JButton("Agentzia berria");
+		btnAgentzia_berri.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnAgentzia_berri.setBounds(390, 239, 163, 55);
+		panel.add(btnAgentzia_berri);
+		
+				// LOGIN BOTOIA
+				btnLogin = new JButton("Log in");
+				btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				btnLogin.setBounds(201, 239, 169, 55);
+				panel.add(btnLogin);
+				
+						// AGENTZIA IZENA
+						JLabel lblAgentzia = new JLabel("Agentzia izena");
+						lblAgentzia.setFont(new Font("Tahoma", Font.PLAIN, 20));
+						lblAgentzia.setBounds(201, 86, 146, 25);
+						panel.add(lblAgentzia);
+						lblAgentzia.setForeground(new Color(255, 255, 255));
+						
+								izena = new JTextField();
+								izena.setBounds(395, 86, 169, 26);
+								panel.add(izena);
+								izena.setColumns(10);
+								
+										// PASAHITZA
+										JLabel lblPasahitza = new JLabel("Pasahitza");
+										lblPasahitza.setFont(new Font("Tahoma", Font.PLAIN, 20));
+										lblPasahitza.setBounds(201, 144, 146, 26);
+										panel.add(lblPasahitza);
+										lblPasahitza.setForeground(new Color(255, 255, 255));
 		
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
@@ -103,8 +108,8 @@ public class Login extends JPanel {
 
 		// ATZEKO ARGAZKIA
 		JLabel labelConImagen = new JLabel();
-		labelConImagen.setBounds(0, 0, 500, 500);
-		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/fondoBlanco.jpg")));
+		labelConImagen.setBounds(0, 0, 1280, 720);
+		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 		add(labelConImagen);
 
 

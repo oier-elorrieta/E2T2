@@ -22,7 +22,7 @@ public class Ongi_Etorri extends JPanel {
 
 		setLayout(null);
 
-		setBounds(100, 100, 500, 500);
+		setBounds(100, 100, 1280, 720);
 
 		// AURRERA LOGIN BOTOIA
 		btnLoging = new JButton("Login");
@@ -38,17 +38,18 @@ public class Ongi_Etorri extends JPanel {
 
 		// ONGI EOTRRI LABELA
 		JLabel lblOngiEtorri = new JLabel("ONGI ETORRI!!!");
-		lblOngiEtorri.setFont(new Font("Source Sans Pro Semibold", Font.PLAIN, 23));
-		lblOngiEtorri.setBounds(161, 234, 176, 44);
+		lblOngiEtorri.setForeground(new Color(0, 0, 0));
+		lblOngiEtorri.setFont(new Font("Reem Kufi", Font.PLAIN, 40));
+		lblOngiEtorri.setBounds(805, 195, 315, 109);
 		add(lblOngiEtorri);
 
-		btnLoging.setBounds(176, 315, 139, 39);
+		btnLoging.setBounds(851, 362, 222, 63);
 		add(btnLoging);
 
 		// ATZEKO ARGAZKIA
 		JLabel labelConImagen = new JLabel();
-		labelConImagen.setBounds(0, 0, 500, 500);
-		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/ongietorri.jpg")));
+		labelConImagen.setBounds(0, 0, 1280, 720);
+		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/lehenengoa.png")));
 		add(labelConImagen);
 
 	}

@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class Bidai_berria extends JPanel {
 
@@ -19,6 +20,8 @@ public class Bidai_berria extends JPanel {
 	public JButton btnAtzera;
 	public JButton btnGorde;
 	public JComboBox comboBox_1;
+	private JTextField textField_3;
+	private JTextField textField_4;
 
 	/**
 	 * Create the panel.
@@ -26,90 +29,113 @@ public class Bidai_berria extends JPanel {
 	public Bidai_berria() {
 		setLayout(null);
 
-		setBounds(100, 100, 500, 500);
+		setBounds(100, 100, 1280, 720);
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(59, 65, 356, 337);
+		panel_1.setBounds(69, 65, 1097, 524);
 		panel_1.setBackground(new Color(111, 147, 102));
 		add(panel_1);
 		setComponentZOrder(panel_1, 0);
 		panel_1.setLayout(null);
 
 		JTextField textField = new JTextField();
-		textField.setBounds(167, 23, 155, 20);
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField.setBounds(356, 65, 290, 35);
 		panel_1.add(textField);
 		textField.setColumns(10);
 
 		JLabel lblNewLabel_1 = new JLabel("Bidai mota");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(40, 73, 74, 14);
+		lblNewLabel_1.setBounds(132, 125, 167, 35);
 		panel_1.add(lblNewLabel_1);
 
 		JComboBox<String> comboBox = new JComboBox<>();
-		comboBox.setBounds(167, 69, 155, 22);
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		comboBox.setBounds(356, 127, 290, 35);
 		panel_1.add(comboBox);
 
 		comboBox.addItem("Bidai Simplea");
 		comboBox.addItem("Bidai Ostatua");
 
 		JLabel lblNewLabel_2 = new JLabel("Bidai hasiera");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setBounds(40, 112, 89, 14);
+		lblNewLabel_2.setBounds(721, 65, 172, 36);
 		panel_1.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_2_2 = new JLabel("Bidai amaiera");
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_2_2.setForeground(new Color(255, 255, 255));
 
-		lblNewLabel_2_2.setBounds(40, 151, 89, 14);
+		lblNewLabel_2_2.setBounds(721, 180, 167, 46);
 
 		panel_1.add(lblNewLabel_2_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Herrialdea");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setBounds(40, 176, 89, 14);
+		lblNewLabel_3.setBounds(132, 186, 167, 35);
 		panel_1.add(lblNewLabel_3);
 
 		comboBox_1 = new JComboBox<>();
-		comboBox_1.setBounds(167, 172, 155, 22);
+		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		comboBox_1.setBounds(356, 188, 290, 35);
 		panel_1.add(comboBox_1);
 
 		JLabel lblNewLabel_4 = new JLabel("Deskribapena");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
-		lblNewLabel_4.setBounds(40, 232, 89, 14);
+		lblNewLabel_4.setBounds(132, 246, 172, 35);
 		panel_1.add(lblNewLabel_4);
 
 		JTextField textField_1 = new JTextField();
-		textField_1.setBounds(167, 216, 155, 46);
+		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_1.setBounds(356, 246, 290, 79);
 		panel_1.add(textField_1);
 		textField_1.setColumns(10);
 
 		JLabel lblNewLabel_5 = new JLabel("Zerbitzuetan ez");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_5.setForeground(new Color(255, 255, 255));
-		lblNewLabel_5.setBounds(40, 273, 89, 20);
+		lblNewLabel_5.setBounds(132, 325, 255, 35);
 		panel_1.add(lblNewLabel_5);
 
 		JTextField textField_2 = new JTextField();
+		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		textField_2.setColumns(10);
-		textField_2.setBounds(167, 273, 155, 46);
+		textField_2.setBounds(356, 336, 290, 80);
 		panel_1.add(textField_2);
 
 		JLabel lblNewLabel = new JLabel("Bidai berria");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(40, 26, 89, 14);
+		lblNewLabel.setBounds(132, 62, 167, 36);
 		panel_1.add(lblNewLabel);
+		
+				btnGorde = new JButton("Gorde");
+				btnGorde.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				btnGorde.setBounds(55, 442, 122, 46);
+				panel_1.add(btnGorde);
+				btnGorde.setBackground(new Color(111, 147, 102));
+				
+				textField_3 = new JTextField();
+				textField_3.setBounds(721, 101, 239, 46);
+				panel_1.add(textField_3);
+				textField_3.setColumns(10);
+				
+				textField_4 = new JTextField();
+				textField_4.setColumns(10);
+				textField_4.setBounds(721, 224, 239, 46);
+				panel_1.add(textField_4);
 
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
 		btnAtzera.setBounds(10, 11, 50, 23);
 		add(btnAtzera);
 
-		btnGorde = new JButton("Gorde");
-		btnGorde.setBackground(new Color(111, 147, 102));
-		btnGorde.setBounds(59, 432, 76, 23);
-		add(btnGorde);
-
 		JLabel labelConImagen = new JLabel();
-		labelConImagen.setBounds(0, 0, 500, 500);
-		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
+		labelConImagen.setBounds(0, 0, 1280, 720);
+		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 		add(labelConImagen);
 
 		/* ESTO DEBE SER DESDE LA DATU BASE */

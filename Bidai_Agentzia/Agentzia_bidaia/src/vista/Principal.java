@@ -21,63 +21,63 @@ public class Principal extends JFrame {
 
 	public Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 520, 525);
+		setBounds(100, 100, 1280, 720);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
 		hegaldia = new Hegaldia();
-		hegaldia.setSize(500, 486);
+		hegaldia.setSize(1280, 720);
 		hegaldia.setLocation(0, 0);
 		contentPane.add(hegaldia);
 		hegaldia.setVisible(false);
 		
 		besteBatzuk = new Beste_Batzuk();
-		besteBatzuk.setSize(500, 486);
+		besteBatzuk.setSize(1280, 720);
 		besteBatzuk.setLocation(0, 0);
 		contentPane.add(besteBatzuk);
 		besteBatzuk.setVisible(false);
 		
 		bidai_Berria = new Bidai_berria();
-		bidai_Berria.setSize(500, 486);
+		bidai_Berria.setSize(1280, 720);
 		bidai_Berria.setLocation(0, 0);
 		contentPane.add(bidai_Berria);
 		bidai_Berria.setVisible(false);
 		
 		ekitaldi_Berria = new Ekitaldi_Berria();
-		ekitaldi_Berria.setSize(500, 486);
+		ekitaldi_Berria.setSize(1280, 720);
 		ekitaldi_Berria.setLocation(0, 0);
 		contentPane.add(ekitaldi_Berria);
 		ekitaldi_Berria.setVisible(false);
 		
 		ostatua = new Ostatu_Berria();
-		ostatua.setSize(500, 486);
+		ostatua.setSize(1280, 720);
 		ostatua.setLocation(0, 0);
 		contentPane.add(ostatua);
 		ostatua.setVisible(false);
 		
 		profil_Berria = new Profil_Berria();
-		profil_Berria.setSize(500, 486);
+		profil_Berria.setSize(1280, 720);
 		profil_Berria.setLocation(0, 0);
 		contentPane.add(profil_Berria);
 		profil_Berria.setVisible(false);
 
 		bidai_Ekitaldi = new Bidai_Ekitaldi();
-		bidai_Ekitaldi.setSize(500, 486);
+		bidai_Ekitaldi.setSize(1280, 720);
 		bidai_Ekitaldi.setLocation(0, 0);
 		contentPane.add(bidai_Ekitaldi);
 		bidai_Ekitaldi.setVisible(false);
 
 		login = new Login();
-		login.setSize(500, 486);
+		login.setSize(1280, 720);
 		login.setLocation(0, 0);
 		contentPane.add(login);
 		login.setVisible(false);
 
 		ongi_Etorri = new Ongi_Etorri();
 		ongi_Etorri.btnLoging.setLocation(181, 280);
-		ongi_Etorri.setBounds(0, 0, 500, 486);
+		ongi_Etorri.setBounds(0, 0, 1280, 780);
 		contentPane.add(ongi_Etorri);
 		
 		verPaneles("OngiEtorri");

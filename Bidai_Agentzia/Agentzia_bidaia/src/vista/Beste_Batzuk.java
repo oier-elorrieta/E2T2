@@ -30,7 +30,7 @@ public class Beste_Batzuk extends JPanel {
 
 		setLayout(null);
 
-		setBounds(100, 100, 500, 500);
+		setBounds(100, 100, 1280, 720);
 
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
@@ -40,67 +40,73 @@ public class Beste_Batzuk extends JPanel {
 		JPanel panel = new JPanel();
 		panel.setForeground(new Color(255, 255, 255));
 		panel.setBackground(new Color(111, 145, 102));
-		panel.setBounds(56, 78, 387, 313);
+		panel.setBounds(73, 78, 1138, 514);
 		add(panel);
 		panel.setLayout(null);
 
 		JLabel lblNewLabel_1 = new JLabel("Izena");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(47, 38, 46, 14);
+		lblNewLabel_1.setBounds(375, 91, 163, 34);
 		panel.add(lblNewLabel_1);
 
 		jarMota = new JComboBox();
-		jarMota.setBounds(204, 68, 137, 22);
+		jarMota.setBounds(638, 151, 201, 34);
 		panel.add(jarMota);
 
 		JLabel lblNewLabel = new JLabel("Jarduera mota");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(47, 72, 101, 14);
+		lblNewLabel.setBounds(375, 152, 149, 25);
 		panel.add(lblNewLabel);
 
 		textField = new JTextField();
-		textField.setBounds(204, 35, 137, 20);
+		textField.setBounds(638, 95, 201, 34);
 		panel.add(textField);
 		textField.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("Deskripzioa");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setBounds(47, 123, 101, 14);
+		lblNewLabel_2.setBounds(375, 208, 170, 34);
 		panel.add(lblNewLabel_2);
 
 		textField_1 = new JTextField();
-		textField_1.setBounds(204, 120, 137, 56);
+		textField_1.setBounds(637, 208, 202, 64);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
-		textField_2.setBounds(204, 201, 137, 20);
+		textField_2.setBounds(637, 296, 202, 34);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 
 		JLabel lblNewLabel_2_1 = new JLabel("Prezioa");
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_2_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2_1.setBounds(47, 204, 101, 14);
+		lblNewLabel_2_1.setBounds(374, 292, 127, 34);
 		panel.add(lblNewLabel_2_1);
 
 		JLabel lblNewLabel_3 = new JLabel("Data");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setBounds(47, 247, 46, 14);
+		lblNewLabel_3.setBounds(374, 355, 113, 34);
 		panel.add(lblNewLabel_3);
 
 		JButton btnNewButton = new JButton("Gorde");
-		btnNewButton.setBounds(47, 272, 89, 23);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton.setBounds(47, 424, 149, 49);
 		panel.add(btnNewButton);
 
 		JLabel lblNewLabel_6 = new JLabel("JARDUERA ");
+		lblNewLabel_6.setBounds(522, 29, 122, 23);
+		panel.add(lblNewLabel_6);
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_6.setBounds(193, 44, 122, 23);
-		add(lblNewLabel_6);
 
 		JLabel labelConImagen = new JLabel();
-		labelConImagen.setBounds(0, 0, 500, 500);
+		labelConImagen.setBounds(0, 0, 1280, 720);
 		add(labelConImagen);
-		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
+		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 	
 		jardueraMotaDB();
 	}

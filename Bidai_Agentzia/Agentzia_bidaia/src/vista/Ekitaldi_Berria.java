@@ -19,7 +19,7 @@ public class Ekitaldi_Berria extends JPanel {
 	 */
 	public Ekitaldi_Berria() {
 		setLayout(null);
-		setBounds(100, 100, 500, 500);
+		setBounds(100, 100, 1280, 720);
 
 		btnOstatua = new JButton("OSTATUA");
 		btnOstatua.setBounds(196, 98, 89, 23);
@@ -39,9 +39,9 @@ public class Ekitaldi_Berria extends JPanel {
 		add(btnAtzera);
 
 		JLabel labelConImagen = new JLabel();
-		labelConImagen.setBounds(0, 0, 500, 500);
+		labelConImagen.setBounds(0, 0, 1280, 720);
 		add(labelConImagen);
-		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
+		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 	}
 
 }

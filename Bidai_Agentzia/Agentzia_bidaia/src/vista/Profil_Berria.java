@@ -35,68 +35,76 @@ public class Profil_Berria extends JPanel {
 	 */
 	public Profil_Berria() {
 
-		setBounds(100, 100, 500, 500);
+		setBounds(100, 100, 1280, 720);
 		setLayout(null);
 
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(55, 54, 395, 327);
+		panel_1.setBounds(144, 73, 1026, 521);
 		panel_1.setBackground(new Color(111, 147, 102));
 		add(panel_1);
 		panel_1.setLayout(null);
 
 		JLabel lblNewLabel_1 = new JLabel("AGENTZIA BERRIA");
-		lblNewLabel_1.setBounds(82, 11, 230, 31);
+		lblNewLabel_1.setBounds(395, 27, 230, 31);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		panel_1.add(lblNewLabel_1);
 
 		JTextField izena = new JTextField();
-		izena.setBounds(189, 53, 173, 20);
+		izena.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		izena.setBounds(496, 105, 223, 36);
 		panel_1.add(izena);
 		izena.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("Markaren kolorea");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setBounds(48, 103, 97, 14);
+		lblNewLabel_2.setBounds(215, 168, 215, 33);
 		panel_1.add(lblNewLabel_2);
 
 		JTextField logoa = new JTextField();
-		logoa.setBounds(189, 244, 173, 20);
+		logoa.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		logoa.setBounds(495, 338, 224, 44);
 		panel_1.add(logoa);
 		logoa.setColumns(10);
 
 		JLabel lblNewLabel_3 = new JLabel("Langile kopurua");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setBounds(48, 150, 83, 14);
+		lblNewLabel_3.setBounds(215, 221, 189, 44);
 		panel_1.add(lblNewLabel_3);
 
 		langile = new JComboBox();
-		langile.setBounds(189, 147, 173, 20);
+		langile.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		langile.setBounds(496, 221, 223, 36);
 		panel_1.add(langile);
 
 		JLabel lblNewLabel_4 = new JLabel("Agentzia mota");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
-		lblNewLabel_4.setBounds(48, 198, 83, 14);
+		lblNewLabel_4.setBounds(215, 276, 143, 44);
 		panel_1.add(lblNewLabel_4);
 
 		agentzia = new JComboBox();
-		agentzia.setBounds(189, 194, 173, 22);
+		agentzia.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		agentzia.setBounds(496, 280, 223, 36);
 		panel_1.add(agentzia);
 
 		JLabel lblNewLabel_5 = new JLabel("Logoa");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_5.setForeground(new Color(255, 255, 255));
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setBounds(48, 247, 42, 14);
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_5.setBounds(215, 349, 143, 33);
 		panel_1.add(lblNewLabel_5);
 
         JPanel kolorea = new JPanel();
-        kolorea.setBounds(320, 97, 42, 20);
+        kolorea.setBounds(647, 168, 72, 33);
         kolorea.setBackground(Color.WHITE);
         panel_1.add(kolorea);
 
         // 🔹 Botón para abrir la paleta de colores
         JButton colorButton = new JButton("Kolorea erabaki");
-        colorButton.setBounds(189, 99, 121, 20);
+        colorButton.setBounds(496, 166, 129, 35);
         panel_1.add(colorButton);
 
         colorButton.addActionListener(new ActionListener() {
@@ -111,16 +119,17 @@ public class Profil_Berria extends JPanel {
         });
 
 		JLabel lblNewLabel = new JLabel("Agentzia Izena");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(48, 56, 83, 14);
+		lblNewLabel.setBounds(215, 105, 189, 44);
 		panel_1.add(lblNewLabel);
 
 		btnGorde = new JButton("Gorde");
-		btnGorde.setBounds(48, 284, 85, 23);
+		btnGorde.setBounds(59, 452, 105, 33);
 		panel_1.add(btnGorde);
 
 		btnUtzi = new JButton("Utzi");
-		btnUtzi.setBounds(143, 284, 65, 23);
+		btnUtzi.setBounds(173, 452, 95, 33);
 		panel_1.add(btnUtzi);
 
 		btnAtzera = new JButton("X");
@@ -129,8 +138,8 @@ public class Profil_Berria extends JPanel {
 		add(btnAtzera);
 
 		JLabel labelConImagen = new JLabel();
-		labelConImagen.setBounds(0, 0, 500, 500);
-		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/white.png")));
+		labelConImagen.setBounds(0, 0, 1280, 720);
+		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 		add(labelConImagen);
 
 		
