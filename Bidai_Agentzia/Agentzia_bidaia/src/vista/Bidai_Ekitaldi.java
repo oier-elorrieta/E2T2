@@ -83,7 +83,16 @@ public class Bidai_Ekitaldi extends JPanel {
 		scrollPane.setBounds(34, 57, 648, 168);
 		panel_1.add(scrollPane);
 
-		bidaiakTaula = new JTable();
+		DefaultTableModel modelo2 = new DefaultTableModel();
+		bidaiakTaula = new JTable(modelo2);
+		bidaiakTaula.setModel(new DefaultTableModel(
+				new Object[][] { { null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null }, },
+				new String[] { "Izena", "Mota", "Data", "Prezioa" }));
 		scrollPane.setViewportView(bidaiakTaula);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
