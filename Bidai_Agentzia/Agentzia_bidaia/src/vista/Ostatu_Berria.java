@@ -24,7 +24,6 @@ public class Ostatu_Berria extends JPanel {
 	public JComboBox logelaMota;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	
 
 	/**
 	 * Create the panel.
@@ -51,6 +50,9 @@ public class Ostatu_Berria extends JPanel {
 		panel.add(izenaTestua);
 		izenaTestua.setColumns(10);
 
+		// ----------------------------------------------------------------
+		// ------------------EKITALDI COMBOBOX-----------------------------
+		// ----------------------------------------------------------------
 		ekitaldiMota = new JComboBox();
 		ekitaldiMota.setBounds(356, 149, 227, 32);
 		panel.add(ekitaldiMota);
@@ -67,6 +69,9 @@ public class Ostatu_Berria extends JPanel {
 		lblNewLabel_2.setBounds(140, 204, 159, 32);
 		panel.add(lblNewLabel_2);
 
+		// ----------------------------------------------------------------
+		// ------------------LOGELA MOTA COMBO BOX-----------------------------
+		// ----------------------------------------------------------------
 		logelaMota = new JComboBox();
 		logelaMota.setBounds(356, 208, 227, 32);
 		panel.add(logelaMota);
@@ -109,22 +114,25 @@ public class Ostatu_Berria extends JPanel {
 		textField_1.setColumns(10);
 		textField_1.setBounds(356, 322, 227, 32);
 		panel.add(textField_1);
-		
-				JLabel lblNewLabel_6 = new JLabel("OSTATUA");
-				lblNewLabel_6.setBounds(510, 27, 108, 23);
-				panel.add(lblNewLabel_6);
-				lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				
-				textField_2 = new JTextField();
-				textField_2.setColumns(10);
-				textField_2.setBounds(711, 180, 227, 32);
-				panel.add(textField_2);
-				
-				textField_3 = new JTextField();
-				textField_3.setColumns(10);
-				textField_3.setBounds(712, 290, 227, 32);
-				panel.add(textField_3);
 
+		JLabel lblNewLabel_6 = new JLabel("OSTATUA");
+		lblNewLabel_6.setBounds(510, 27, 108, 23);
+		panel.add(lblNewLabel_6);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 22));
+
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(711, 180, 227, 32);
+		panel.add(textField_2);
+
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(712, 290, 227, 32);
+		panel.add(textField_3);
+
+		// ----------------------------------------------------------------
+		// ----------------------ATZERA BOTOIA-----------------------------
+		// ----------------------------------------------------------------
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
 		btnAtzera.setBounds(10, 11, 50, 23);
@@ -136,24 +144,27 @@ public class Ostatu_Berria extends JPanel {
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 
 		logelaMotaDB();
-		
-		
+
 	}
+
+	// ----------------------------------------------------------------
+	// ------------------METODO LOGELA MOTA----------------------------
+	// ----------------------------------------------------------------
 	private void logelaMotaDB() {
-        String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
-        String usuario = "root";  
-        String contraseña = "";  
-        String query = "SELECT deskribapena FROM logela_mota";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+		String query = "SELECT deskribapena FROM logela_mota";
 
-        try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-             PreparedStatement ps = conexion.prepareStatement(query);
-             ResultSet rs = ps.executeQuery()) {
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				PreparedStatement ps = conexion.prepareStatement(query);
+				ResultSet rs = ps.executeQuery()) {
 
-            while (rs.next()) {
-                logelaMota.addItem(rs.getString("deskribapena"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			while (rs.next()) {
+				logelaMota.addItem(rs.getString("deskribapena"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

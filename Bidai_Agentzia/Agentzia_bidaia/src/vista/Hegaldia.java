@@ -39,6 +39,9 @@ public class Hegaldia extends JPanel {
 
 		setBounds(100, 100, 1280, 720);
 
+		// ----------------------------------------------------------------
+		// ----------------------ATZERA BOTOIA-----------------------------
+		// ----------------------------------------------------------------
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
 		btnAtzera.setBounds(10, 11, 50, 23);
@@ -93,6 +96,9 @@ public class Hegaldia extends JPanel {
 		lblNewLabel_4.setBounds(88, 321, 174, 31);
 		panel.add(lblNewLabel_4);
 
+		// ----------------------------------------------------------------
+		// ------------------JOAN ETORRI COMBOBOX--------------------------
+		// ----------------------------------------------------------------
 		joan = new JComboBox();
 		joan.setBounds(303, 271, 201, 35);
 		panel.add(joan);
@@ -222,11 +228,14 @@ public class Hegaldia extends JPanel {
 		add(labelConImagen);
 		labelConImagen.setBackground(new Color(111, 145, 102));
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
-		
+
 		aireportuDB();
-		
+
 	}
 
+	// ----------------------------------------------------------------
+	// ------------------METODO COMBOBOX-----------------------------
+	// ----------------------------------------------------------------
 	private void aireportuDB() {
 		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";

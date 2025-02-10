@@ -32,6 +32,9 @@ public class Beste_Batzuk extends JPanel {
 
 		setBounds(100, 100, 1280, 720);
 
+		// ----------------------------------------------------------------
+		// ----------------------ATZERA BOTOIA-----------------------------
+		// ----------------------------------------------------------------
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
 		btnAtzera.setBounds(10, 11, 50, 23);
@@ -50,6 +53,9 @@ public class Beste_Batzuk extends JPanel {
 		lblNewLabel_1.setBounds(375, 91, 163, 34);
 		panel.add(lblNewLabel_1);
 
+		// ----------------------------------------------------------------
+		// -----------------------MOTA ERABAKI-----------------------------
+		// ----------------------------------------------------------------
 		jarMota = new JComboBox();
 		jarMota.setBounds(638, 151, 201, 34);
 		panel.add(jarMota);
@@ -93,6 +99,9 @@ public class Beste_Batzuk extends JPanel {
 		lblNewLabel_3.setBounds(374, 355, 113, 34);
 		panel.add(lblNewLabel_3);
 
+		// ----------------------------------------------------------------
+		// -----------------------GORDE BOTOIA-----------------------------
+		// ----------------------------------------------------------------
 		JButton btnNewButton = new JButton("Gorde");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBounds(47, 424, 149, 49);
@@ -103,32 +112,36 @@ public class Beste_Batzuk extends JPanel {
 		panel.add(lblNewLabel_6);
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 22));
 
+		// ----------------------------------------------------------------
+		// --------------------ATZEKO ARGAZKIA-----------------------------
+		// ----------------------------------------------------------------
 		JLabel labelConImagen = new JLabel();
 		labelConImagen.setBounds(0, 0, 1280, 720);
 		add(labelConImagen);
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
-	
+
 		jardueraMotaDB();
 	}
 
+	// ----------------------------------------------------------------
+	// ------------------METODO COMBOBOX-------------------------------
+	// ----------------------------------------------------------------
 	private void jardueraMotaDB() {
-        String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
-        String usuario = "root";  
-        String contraseña = "";  
-        String query = "SELECT deskribapena FROM logela_mota";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+		String query = "SELECT deskribapena FROM logela_mota";
 
-        try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-             PreparedStatement ps = conexion.prepareStatement(query);
-             ResultSet rs = ps.executeQuery()) {
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				PreparedStatement ps = conexion.prepareStatement(query);
+				ResultSet rs = ps.executeQuery()) {
 
-            while (rs.next()) {
-               jarMota.addItem(rs.getString("deskribapena"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
+			while (rs.next()) {
+				jarMota.addItem(rs.getString("deskribapena"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

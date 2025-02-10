@@ -63,15 +63,17 @@ public class Bidai_Ekitaldi extends JPanel {
 		lblEkitaldiak.setBounds(261, 243, 164, 24);
 		panel_1.add(lblEkitaldiak);
 
+		// ----------------------------------------------------------------
+		// ------------------BIDAI BERRI BOTOIA----------------------------
+		// ----------------------------------------------------------------
 		btnBidaiBerri = new JButton("Bidai berria");
 		btnBidaiBerri.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnBidaiBerri.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnBidaiBerri.setBounds(846, 223, 129, 44);
 		panel_1.add(btnBidaiBerri);
 
+		// ----------------------------------------------------------------
+		// ------------------EKTIALDI BERRI BOTOIA-------------------------
+		// ----------------------------------------------------------------
 		btnEkitaldiBerri = new JButton("Ekitaldi berria");
 		btnEkitaldiBerri.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnEkitaldiBerri.setBounds(846, 312, 129, 44);
@@ -80,15 +82,8 @@ public class Bidai_Ekitaldi extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(34, 57, 648, 168);
 		panel_1.add(scrollPane);
-		
-		//DefaultTableModel modelo = new DefaultTableModel();
+
 		bidaiakTaula = new JTable();
-		String[] columnNames = {"Bidai", "Edad", "Profesión"};
-		Object[][] data = {
-			    {"Juan", 25, "Ingeniero"},
-			    {"María", 30, "Doctora"},
-			    {"Luis", 28, "Abogado"}
-			};
 		scrollPane.setViewportView(bidaiakTaula);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -97,42 +92,35 @@ public class Bidai_Ekitaldi extends JPanel {
 
 		DefaultTableModel modelo = new DefaultTableModel();
 		ekitaldiTaula = new JTable(modelo);
-		ekitaldiTaula.setModel(
-				new DefaultTableModel(new Object[][] {
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-				}, new String[] { "Izena", "Mota", "Data", "Prezioa" }));
+		ekitaldiTaula.setModel(new DefaultTableModel(
+				new Object[][] { { null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+						{ null, null, null, null }, { null, null, null, null }, { null, null, null, null }, },
+				new String[] { "Izena", "Mota", "Data", "Prezioa" }));
 		scrollPane_1.setViewportView(ekitaldiTaula);
 
+		// ----------------------------------------------------------------
+		// ------------------EZABATU BOTOIA--------------------------------
+		// ----------------------------------------------------------------
 		btnEzabatu = new JButton("Ezabatu");
 		btnEzabatu.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnEzabatu.setBounds(846, 133, 128, 44);
 		panel_1.add(btnEzabatu);
-		
-				btnTrampa = new JButton("Sortu bezero-eskaintza");
-				btnTrampa.setBounds(34, 492, 204, 32);
-				panel_1.add(btnTrampa);
-				btnTrampa.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-					}
-				});
 
+		btnTrampa = new JButton("Sortu bezero-eskaintza");
+		btnTrampa.setBounds(34, 492, 204, 32);
+		panel_1.add(btnTrampa);
+		btnTrampa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+
+		// ----------------------------------------------------------------
+		// ----------------------ATZERA BOTOIA-----------------------------
+		// ----------------------------------------------------------------
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
 		btnAtzera.setBounds(10, 11, 50, 23);

@@ -36,12 +36,15 @@ public class Bidai_berria extends JPanel {
 		add(panel_1);
 		setComponentZOrder(panel_1, 0);
 		panel_1.setLayout(null);
-		
-				btnGorde = new JButton("Gorde");
-				btnGorde.setFont(new Font("Tahoma", Font.PLAIN, 20));
-				btnGorde.setBounds(55, 442, 122, 46);
-				panel_1.add(btnGorde);
-				btnGorde.setBackground(new Color(255, 255, 255));
+
+		// ----------------------------------------------------------------
+		// -----------------------GORDE BOTOIA-----------------------------
+		// ----------------------------------------------------------------
+		btnGorde = new JButton("Gorde");
+		btnGorde.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnGorde.setBounds(55, 442, 122, 46);
+		panel_1.add(btnGorde);
+		btnGorde.setBackground(new Color(255, 255, 255));
 
 		JTextField textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -117,17 +120,20 @@ public class Bidai_berria extends JPanel {
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(132, 62, 167, 36);
 		panel_1.add(lblNewLabel);
-				
-				textField_3 = new JTextField();
-				textField_3.setBounds(721, 101, 239, 46);
-				panel_1.add(textField_3);
-				textField_3.setColumns(10);
-				
-				textField_4 = new JTextField();
-				textField_4.setColumns(10);
-				textField_4.setBounds(721, 224, 239, 46);
-				panel_1.add(textField_4);
 
+		textField_3 = new JTextField();
+		textField_3.setBounds(721, 101, 239, 46);
+		panel_1.add(textField_3);
+		textField_3.setColumns(10);
+
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(721, 224, 239, 46);
+		panel_1.add(textField_4);
+
+		// ----------------------------------------------------------------
+		// ----------------------ATZERA BOTOIA-----------------------------
+		// ----------------------------------------------------------------
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
 		btnAtzera.setBounds(10, 11, 50, 23);
@@ -138,57 +144,27 @@ public class Bidai_berria extends JPanel {
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 		add(labelConImagen);
 
-		/* ESTO DEBE SER DESDE LA DATU BASE */
-		
-		/* String[] paises = { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda",
-		 
-				"Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas",
-				"Bangladés", "Barbados", "Baréin", "Belice", "Benín", "Bielorrusia", "Birmania", "Bosnia y Herzegovina",
-				"Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya",
-				"Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Colombia", "Comoras",
-				"Congo (República del)", "Corea del Norte", "Corea del Sur", "Costa Rica", "Croacia", "Cuba", "Curazao",
-				"Chipre", "Dominica", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia",
-				"Eslovenia", "España", "Estados Unidos", "Estonia", "Esuatini", "Etiopía", "Fiyi", "Filipinas",
-				"Finlandia", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala",
-				"Guinea", "Guinea-Bisáu", "Guyana", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak",
-				"Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica",
-				"Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kosovo", "Kuwait", "Laos",
-				"Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo",
-				"Madagascar", "Malawi", "Malasia", "Malaui", "Maldivas", "Mali", "Malta", "Marruecos", "Mauricio",
-				"Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique",
-				"Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán",
-				"Pakistán", "Palau", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal",
-				"Puerto Rico", "Qatar", "Rumanía", "Rusia", "Ruanda", "San Cristóbal y Nieves", "San Marino",
-				"San Vicente y las Granadinas", "Santa Lucía", "Senegal", "Serbia", "Seychelles", "Sierra Leona",
-				"Singapur", "Siria", "Somalia", "Sri Lanka", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza",
-				"Surinam", "Siria", "Taiwán", "Tanzania", "Tailandia", "Togo", "Tonga", "Trinidad y Tobago", "Túnez",
-				"Turkmenistán", "Turquía", "Tuvalu", "Uganda", "Ucrania", "Uruguay", "Vanuatu", "Venezuela", "Vietnam",
-				"Yemen", "Yibuti", "Zambia", "Zimbabue" };
-
-		for (String pais : paises) {
-			comboBox_1.addItem(pais);
-
-		}*/
-		
 		HerrialdeakDB();
-    }
+	}
 
-    private void HerrialdeakDB() {
-        String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
-        String usuario = "root";  
-        String contraseña = "";  
-        String query = "SELECT herrialdea FROM herrialdeak";
+	// ----------------------------------------------------------------
+	// ------------------METODO COMBOBOX-----------------------------
+	// ----------------------------------------------------------------
+	private void HerrialdeakDB() {
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+		String query = "SELECT herrialdea FROM herrialdeak";
 
-        try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-             PreparedStatement ps = conexion.prepareStatement(query);
-             ResultSet rs = ps.executeQuery()) {
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				PreparedStatement ps = conexion.prepareStatement(query);
+				ResultSet rs = ps.executeQuery()) {
 
-            while (rs.next()) {
-                comboBox_1.addItem(rs.getString("herrialdea"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			while (rs.next()) {
+				comboBox_1.addItem(rs.getString("herrialdea"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
-

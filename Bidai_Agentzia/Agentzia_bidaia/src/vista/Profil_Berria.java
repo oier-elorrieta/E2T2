@@ -28,8 +28,7 @@ public class Profil_Berria extends JPanel {
 	public JComboBox agentzia;
 	public JComboBox langile;
 	private JTextField erabiltzaile, logo, kolorea, pasahitza;
-	
-	
+
 	/**
 	 * Create the panel.
 	 */
@@ -74,6 +73,9 @@ public class Profil_Berria extends JPanel {
 		lblNewLabel_3.setBounds(215, 221, 189, 44);
 		panel_1.add(lblNewLabel_3);
 
+		// ----------------------------------------------------------------
+		// ------------------LANGILE MOTA COMBO BOX------------------------
+		// ----------------------------------------------------------------
 		langile = new JComboBox();
 		langile.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		langile.setBounds(496, 221, 223, 36);
@@ -85,6 +87,9 @@ public class Profil_Berria extends JPanel {
 		lblNewLabel_4.setBounds(215, 276, 143, 44);
 		panel_1.add(lblNewLabel_4);
 
+		// ----------------------------------------------------------------
+		// ------------------AGENTZIA COMBO BOX----------------------------
+		// ----------------------------------------------------------------
 		agentzia = new JComboBox();
 		agentzia.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		agentzia.setBounds(496, 280, 223, 36);
@@ -97,26 +102,28 @@ public class Profil_Berria extends JPanel {
 		lblNewLabel_5.setBounds(215, 349, 143, 33);
 		panel_1.add(lblNewLabel_5);
 
-        JPanel kolorea = new JPanel();
-        kolorea.setBounds(647, 168, 72, 33);
-        kolorea.setBackground(Color.WHITE);
-        panel_1.add(kolorea);
+		JPanel kolorea = new JPanel();
+		kolorea.setBounds(647, 168, 72, 33);
+		kolorea.setBackground(Color.WHITE);
+		panel_1.add(kolorea);
 
-        // 🔹 Botón para abrir la paleta de colores
-        JButton colorButton = new JButton("Kolorea erabaki");
-        colorButton.setBounds(496, 166, 129, 35);
-        panel_1.add(colorButton);
+		// ----------------------------------------------------------------
+		// ------------------KOLOREKO PANELA-------------------------------
+		// ----------------------------------------------------------------
+		JButton colorButton = new JButton("Kolorea erabaki");
+		colorButton.setBounds(496, 166, 129, 35);
+		panel_1.add(colorButton);
 
-        colorButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Color selectedColor = JColorChooser.showDialog(panel_1, "Elige un color", kolorea.getBackground());
-                if (selectedColor != null) {
-                    kolorea.setBackground(selectedColor);
-                    logoa.setText("#" + Integer.toHexString(selectedColor.getRGB()).substring(2).toUpperCase());
-                }
-            }
-        });
+		colorButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Color selectedColor = JColorChooser.showDialog(panel_1, "Elige un color", kolorea.getBackground());
+				if (selectedColor != null) {
+					kolorea.setBackground(selectedColor);
+					logoa.setText("#" + Integer.toHexString(selectedColor.getRGB()).substring(2).toUpperCase());
+				}
+			}
+		});
 
 		JLabel lblNewLabel = new JLabel("Agentzia Izena");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -124,14 +131,23 @@ public class Profil_Berria extends JPanel {
 		lblNewLabel.setBounds(215, 105, 189, 44);
 		panel_1.add(lblNewLabel);
 
+		// ----------------------------------------------------------------
+		// ------------------GORDE BOTOIA----------------------------------
+		// ----------------------------------------------------------------
 		btnGorde = new JButton("Gorde");
 		btnGorde.setBounds(59, 452, 105, 33);
 		panel_1.add(btnGorde);
 
+		// ----------------------------------------------------------------
+		// ------------------UTZI BOTOIA-----------------------------------
+		// ----------------------------------------------------------------
 		btnUtzi = new JButton("Utzi");
 		btnUtzi.setBounds(173, 452, 95, 33);
 		panel_1.add(btnUtzi);
 
+		// ----------------------------------------------------------------
+		// ------------------ATZERA BOTOIA----f-----------------------------
+		// ----------------------------------------------------------------
 		btnAtzera = new JButton("X");
 		btnAtzera.setBackground(new Color(111, 147, 102));
 		btnAtzera.setBounds(10, 11, 50, 23);
@@ -142,47 +158,49 @@ public class Profil_Berria extends JPanel {
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 		add(labelConImagen);
 
-		
 		langileKopDB();
 		agentziaMotaDB();
 	}
 
-    /**
-     * Método para conectar con la base de datos y cargar los países en el JComboBox.
-     */
-    private void langileKopDB() {
-        String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
-        String usuario = "root";  
-        String contraseña = "";  
-        String query = "SELECT deskribapena FROM langile_kop";
+	// ----------------------------------------------------------------
+	// ------------------METODO LANGILEAK-----------------------------
+	// ----------------------------------------------------------------
+	private void langileKopDB() {
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+		String query = "SELECT deskribapena FROM langile_kop";
 
-        try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-             PreparedStatement ps = conexion.prepareStatement(query);
-             ResultSet rs = ps.executeQuery()) {
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				PreparedStatement ps = conexion.prepareStatement(query);
+				ResultSet rs = ps.executeQuery()) {
 
-            while (rs.next()) {
-                langile.addItem(rs.getString("deskribapena"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    private void agentziaMotaDB() {
-        String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
-        String usuario = "root";  
-        String contraseña = "";  
-        String query = "SELECT deskribapena FROM agentzia_mota";
+			while (rs.next()) {
+				langile.addItem(rs.getString("deskribapena"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-        try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-             PreparedStatement ps = conexion.prepareStatement(query);
-             ResultSet rs = ps.executeQuery()) {
+	// ----------------------------------------------------------------
+	// ------------------METODO AGENTZIA-----------------------------
+	// ----------------------------------------------------------------
+	private void agentziaMotaDB() {
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+		String query = "SELECT deskribapena FROM agentzia_mota";
 
-            while (rs.next()) {
-                agentzia.addItem(rs.getString("deskribapena"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				PreparedStatement ps = conexion.prepareStatement(query);
+				ResultSet rs = ps.executeQuery()) {
+
+			while (rs.next()) {
+				agentzia.addItem(rs.getString("deskribapena"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
-

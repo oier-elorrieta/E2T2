@@ -24,13 +24,15 @@ public class Ongi_Etorri extends JPanel {
 
 		setBounds(100, 100, 1280, 720);
 
-		// ONGI EOTRRI LABELA
 		JLabel lblOngiEtorri = new JLabel("ONGI ETORRI!!!");
 		lblOngiEtorri.setForeground(new Color(0, 0, 0));
 		lblOngiEtorri.setFont(new Font("Reem Kufi", Font.PLAIN, 40));
 		lblOngiEtorri.setBounds(805, 195, 315, 109);
 		add(lblOngiEtorri);
 
+		// ----------------------------------------------------------------
+		// ----------------------LOGING BOTOIA-----------------------------
+		// ----------------------------------------------------------------
 		btnLoging = new JButton("Loging");
 		btnLoging.setForeground(new Color(255, 255, 255));
 		btnLoging.setFont(new Font("Tahoma", Font.PLAIN, 20));

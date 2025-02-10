@@ -83,6 +83,10 @@ public class Principal extends JFrame {
 		verPaneles("OngiEtorri");
 	}
 
+	//----------------------------------------------------------------
+	//------------------PANELAK ERAKUSTEA-----------------------------
+	//----------------------------------------------------------------
+	
 	public void verPaneles(String panel) {
 		login.setVisible(false);
 		ongi_Etorri.setVisible(false);
