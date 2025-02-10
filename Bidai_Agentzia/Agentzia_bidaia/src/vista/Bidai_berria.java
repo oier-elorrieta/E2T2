@@ -119,11 +119,14 @@ public class Bidai_berria extends JPanel {
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(132, 62, 167, 36);
 		panel_1.add(lblNewLabel);
-		
+
+		// ----------------------------------------------------------------
+		// ------------------------------DATAK-----------------------------
+		// ----------------------------------------------------------------
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(721, 101, 261, 35);
 		panel_1.add(dateChooser);
-		
+
 		JDateChooser dateChooser_1 = new JDateChooser();
 		dateChooser_1.setBounds(721, 223, 261, 35);
 		panel_1.add(dateChooser_1);
