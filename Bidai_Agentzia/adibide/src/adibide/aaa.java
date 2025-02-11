@@ -22,7 +22,7 @@ public class aaa {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:2025/db_bidai_agentzia",
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/db_bidai_agentzia",
 					"root", "");
 			//PreparedStatement sentencia = conexion.prepareStatement(sql);
 			String sql = "SELECT * FROM agentzia WHERE erabiltzailea = 'admin' AND pasahitza= 'admin'";

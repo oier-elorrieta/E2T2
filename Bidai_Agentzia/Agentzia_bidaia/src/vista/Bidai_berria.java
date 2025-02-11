@@ -151,7 +151,7 @@ public class Bidai_berria extends JPanel {
 	// ------------------METODO COMBOBOX-----------------------------
 	// ----------------------------------------------------------------
 	private void HerrialdeakDB() {
-		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT herrialdea FROM herrialdeak";
