@@ -136,6 +136,7 @@ public class Controlador {
 		ventanaPrincipal.bidai_Berria.btnGorde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.verPaneles("BidaiEkitaldia");
+				ventanaPrincipal.bidai_Berria.guardarDatos();
 			}
 		});
 
@@ -187,8 +188,10 @@ public class Controlador {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		    	ventanaPrincipal.profil_Berria.insertarDatosEnDB();
+		    	ventanaPrincipal.bidai_Ekitaldi.cargarDatosTabla();
 		    }
 		});
+		
 		/*
 		 * private void AgentziaDatuak(int agentzia_id, String izena, String logoa,
 		 * String marka_kolore, String erabiltzaile, String pasahitza, int agentzia_kod,

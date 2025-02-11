@@ -21,6 +21,12 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 
@@ -131,5 +137,44 @@ public class Bidai_Ekitaldi extends JPanel {
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 		add(labelConImagen);
 
+	}
+
+	public void cargarDatosTabla() {
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+
+		String query = "SELECT izena, deskribapena, bidai_iraupen, hasiera_data, amaiera_data, herrialdea, bidai_deskribapena FROM bidaia";
+
+		DefaultTableModel modeloTabla = new DefaultTableModel();
+		modeloTabla.addColumn("Izena");
+		modeloTabla.addColumn("Deskribapena");
+		modeloTabla.addColumn("Iraupena");
+		modeloTabla.addColumn("Hasiera Data");
+		modeloTabla.addColumn("Amaiera Data");
+		modeloTabla.addColumn("Herrialdea");
+
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				Statement stmt = conexion.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+
+			while (rs.next()) {
+				String izena = rs.getString("izena");
+				String deskribapena = rs.getString("deskribapena");
+				double iraupena = rs.getDouble("bidai_iraupen");
+				Date hasieraData = rs.getDate("hasiera_data");
+				Date amaieraData = rs.getDate("amaiera_data");
+				Object herrialdea = rs.getObject("herrialdea");
+				Object bidaiMota = rs.getObject("bidaiMota");
+
+				modeloTabla.addRow(new Object[] { izena, deskribapena, iraupena, hasieraData, amaieraData, herrialdea,
+						bidaiMota });
+
+			}
+			bidaiakTaula.setModel(modeloTabla);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
