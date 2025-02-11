@@ -37,7 +37,7 @@ public class Ongi_Etorri extends JPanel {
 		btnLoging.setForeground(new Color(255, 255, 255));
 		btnLoging.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnLoging.setBackground(new Color(111, 145, 102));
-		btnLoging.setBounds(884, 315, 164, 46);
+		btnLoging.setBounds(876, 355, 164, 46);
 		add(btnLoging);
 
 		// ATZEKO ARGAZKIA

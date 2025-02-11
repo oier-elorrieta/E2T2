@@ -57,7 +57,7 @@ public class Controlador {
 
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");
-					Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:2025/db_bidai_agentzia",
+					Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/db_bidai_agentzia",
 							"root", "");
 					Statement sentencia = conexion.createStatement();
 					String sql = "SELECT * FROM agentzia WHERE erabiltzailea = '" + izena + "' AND pasahitza= '"
@@ -183,13 +183,12 @@ public class Controlador {
 				ventanaPrincipal.verPaneles("EkitaldiBerria");
 			}
 		});
-
 		ventanaPrincipal.profil_Berria.btnGorde.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				agentziaBD();
-			}
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	ventanaPrincipal.profil_Berria.insertarDatosEnDB();
+		    }
 		});
-
 		/*
 		 * private void AgentziaDatuak(int agentzia_id, String izena, String logoa,
 		 * String marka_kolore, String erabiltzaile, String pasahitza, int agentzia_kod,
@@ -241,7 +240,7 @@ public class Controlador {
 	
 	
 	
-	public void agentziaBD() {
+	/*public void agentziaBD() {
 		conn = Conexion_DB.conectar();
 		if (conn == null) {
 			JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos.");
@@ -269,7 +268,7 @@ public class Controlador {
 		} catch (SQLException e) {
 			System.out.println("Error al guardar agencia: " + e.getMessage());
 		}
-	}
+	}*/
 
 	public int bidaiKopurua() {
 		return kopurua;
