@@ -196,9 +196,13 @@ public class Controlador {
 				ventanaPrincipal.verPaneles("BidaiEkitaldia");
 				ventanaPrincipal.ostatua.guardarOstatua();
 			}
-
-			
 		});	
+		ventanaPrincipal.besteBatzuk.btnGorde.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.verPaneles("BidaiEkitaldia");
+				ventanaPrincipal.besteBatzuk.guardarBesteBatzuk();
+			}
+		});
 	}
 	public int bidaiKopurua() {
 		return kopurua;

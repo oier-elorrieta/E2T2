@@ -91,7 +91,7 @@ public class Bidai_Ekitaldi extends JPanel {
 
 		bidaiakTaula = new JTable();
 		scrollPane.setViewportView(bidaiakTaula);
-		
+
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(34, 278, 648, 168);
 		panel_1.add(scrollPane_1);
@@ -128,10 +128,10 @@ public class Bidai_Ekitaldi extends JPanel {
 		labelConImagen.setBounds(00, 00, 1280, 720);
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 		add(labelConImagen);
-		
+
 		cargarDatosTablaBidaiak();
-		cargarDatosTablaEkitaldi(); 
-		
+		cargarDatosTablaEkitaldi();
+
 	}
 
 	public void cargarDatosTablaBidaiak() {
@@ -161,7 +161,8 @@ public class Bidai_Ekitaldi extends JPanel {
 				Date amaieraData = rs.getDate("amaiera_data");
 				Object herrialdea = rs.getObject("herrialdea");
 
-				modeloTabla.addRow(new Object[] { izena, deskribapena, iraupena, hasieraData, amaieraData, herrialdea});
+				modeloTabla
+						.addRow(new Object[] { izena, deskribapena, iraupena, hasieraData, amaieraData, herrialdea });
 
 			}
 			bidaiakTaula.setModel(modeloTabla);
@@ -170,39 +171,60 @@ public class Bidai_Ekitaldi extends JPanel {
 			e.printStackTrace();
 		}
 	}
+
 	public static void cargarDatosTablaEkitaldi() {
-	    String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
-	    String usuario = "root";
-	    String contraseña = "";
-	    String query = "SELECT izena, prezioa, hiria, sarrera_egun, ireeta_egun, logela_kod FROM ostatua";
+		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+		String query = "SELECT izena, prezioa, hiria, sarrera_egun, ireeta_egun, logela_kod FROM ostatua";
+		String query2 = "SELECT izena, prezioa, deskribapena, eguna FROM beste_batzuk";
+		String query3 = "SELECT izena, prezioa, deskribapena, eguna FROM joan_etorria";
 
-	    DefaultTableModel modeloTabla = new DefaultTableModel();
-	    modeloTabla.addColumn("Izena");
-	    modeloTabla.addColumn("Prezioa");
-	    modeloTabla.addColumn("Hiria");
-	    modeloTabla.addColumn("Hasiera Data");
-	    modeloTabla.addColumn("Amaiera Data");
-	    modeloTabla.addColumn("Logela Mota");
+		DefaultTableModel modeloTabla = new DefaultTableModel();
+		modeloTabla.addColumn("Izena");
+		modeloTabla.addColumn("Prezioa");
+		modeloTabla.addColumn("Hiria");
+		modeloTabla.addColumn("Hasiera Data");
+		modeloTabla.addColumn("Amaiera Data");
+		modeloTabla.addColumn("Logela Mota");
+		modeloTabla.addColumn("Deskribapena");
 
-	    try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-	         Statement stmt = conexion.createStatement();
-	         ResultSet rs = stmt.executeQuery(query)) {
-	        
-	        while (rs.next()) {
-	            String izena = rs.getString("izena");
-	            String prezioa = rs.getString("prezioa");
-	            String hiria = rs.getString("hiria");
-	            Date hasieraData = rs.getDate("sarrera_egun");
-	            Date amaieraData = rs.getDate("ireeta_egun");
-	            Object logelaMota = rs.getObject("logela_kod");
-	            
-	            modeloTabla.addRow(new Object[]{izena, prezioa, hiria, hasieraData, amaieraData, logelaMota});
-	        }
-	        
-	        ekitaldiTaula.setModel(modeloTabla);
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				Statement stmt = conexion.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+
+			while (rs.next()) {
+				String izena = rs.getString("izena");
+				String prezioa = rs.getString("prezioa");
+				String hiria = rs.getString("hiria");
+				Date hasieraData = rs.getDate("sarrera_egun");
+				Date amaieraData = rs.getDate("ireeta_egun");
+				Object logelaMota = rs.getObject("logela_kod");
+
+				modeloTabla.addRow(new Object[] { izena, prezioa, hiria, hasieraData, amaieraData, logelaMota });
+			}
+
+			ekitaldiTaula.setModel(modeloTabla);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				Statement stmt = conexion.createStatement();
+				ResultSet rs = stmt.executeQuery(query2)) {
+
+			while (rs.next()) {
+				String izena = rs.getString("izena");
+				String prezioa = rs.getString("prezioa");
+				Date hasieraData = rs.getDate("eguna");
+				String deskribapena = rs.getString("deskribapena");
+
+				modeloTabla.addRow(new Object[] { izena, prezioa, hasieraData, deskribapena });
+			}
+
+			ekitaldiTaula.setModel(modeloTabla);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-
 }
