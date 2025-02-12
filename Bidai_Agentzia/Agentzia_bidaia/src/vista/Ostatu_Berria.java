@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import java.awt.Font;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,11 +19,13 @@ public class Ostatu_Berria extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField izenaTestua;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField herrialdea;
+	private JTextField prezio;
 	public JButton btnAtzera;
 	public JComboBox ekitaldiMota;
 	public JComboBox logelaMota;
+	public JDateChooser dataHasiera, dataAmaiera;
+	public JButton btnGorde;
 
 	/**
 	 * Create the panel.
@@ -75,10 +78,10 @@ public class Ostatu_Berria extends JPanel {
 		logelaMota.setBounds(356, 208, 227, 32);
 		panel.add(logelaMota);
 
-		textField = new JTextField();
-		textField.setBounds(356, 264, 227, 32);
-		panel.add(textField);
-		textField.setColumns(10);
+		herrialdea = new JTextField();
+		herrialdea.setBounds(356, 264, 227, 32);
+		panel.add(herrialdea);
+		herrialdea.setColumns(10);
 
 		JLabel lblNewLabel_3 = new JLabel("Herrialdea");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -92,10 +95,10 @@ public class Ostatu_Berria extends JPanel {
 		lblNewLabel_3_1.setBounds(140, 318, 150, 32);
 		panel.add(lblNewLabel_3_1);
 
-		JButton btnNewButton = new JButton("Bilatu ostatua");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton.setBounds(40, 449, 159, 50);
-		panel.add(btnNewButton);
+		btnGorde = new JButton("Gorde ostatua");
+		btnGorde.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnGorde.setBounds(40, 449, 159, 50);
+		panel.add(btnGorde);
 
 		JLabel lblNewLabel_4 = new JLabel("Hasiera data");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -109,10 +112,10 @@ public class Ostatu_Berria extends JPanel {
 		lblNewLabel_5.setBounds(712, 259, 164, 32);
 		panel.add(lblNewLabel_5);
 
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(356, 322, 227, 32);
-		panel.add(textField_1);
+		prezio = new JTextField();
+		prezio.setColumns(10);
+		prezio.setBounds(356, 322, 227, 32);
+		panel.add(prezio);
 
 		JLabel lblNewLabel_6 = new JLabel("OSTATUA");
 		lblNewLabel_6.setBounds(510, 27, 108, 23);
@@ -122,13 +125,13 @@ public class Ostatu_Berria extends JPanel {
 		// ----------------------------------------------------------------
 		// ------------------IRTEERA DATAK-------------------------
 		// ----------------------------------------------------------------
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(712, 181, 218, 32);
-		panel.add(dateChooser);
+		dataHasiera = new JDateChooser();
+		dataHasiera.setBounds(712, 181, 218, 32);
+		panel.add(dataHasiera);
 
-		JDateChooser dateChooser_1 = new JDateChooser();
-		dateChooser_1.setBounds(712, 291, 218, 32);
-		panel.add(dateChooser_1);
+		dataAmaiera = new JDateChooser();
+		dataAmaiera.setBounds(712, 291, 218, 32);
+		panel.add(dataAmaiera);
 
 		// ----------------------------------------------------------------
 		// ----------------------ATZERA BOTOIA-----------------------------
@@ -154,17 +157,53 @@ public class Ostatu_Berria extends JPanel {
 		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
-		String query = "SELECT deskribapena FROM logela_mota";
+		String query = "SELECT logela_kod FROM logela_mota";
 
 		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
 				PreparedStatement ps = conexion.prepareStatement(query);
 				ResultSet rs = ps.executeQuery()) {
 
 			while (rs.next()) {
-				logelaMota.addItem(rs.getString("deskribapena"));
+				logelaMota.addItem(rs.getString("logela_kod"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	// ----------------------------------------------------------------
+	// ------------------METODO GUARDAR DATOS--------------------------
+	// ----------------------------------------------------------------
+	public void guardarOstatua() {
+		String izena = izenaTestua.getText();
+		String prezioa = prezio.getText();
+		Date hasieraData = new Date(dataHasiera.getDate().getTime());
+		Date amaieraData = new Date(dataAmaiera.getDate().getTime());
+		Object logelaMot = logelaMota.getSelectedItem();
+		String hiria = herrialdea.getText();
+		int zerb_kod =3;
+
+		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+		String query = "INSERT INTO ostatua (zerb_kod, izena, prezioa,	hiria , sarrera_egun, ireeta_egun, logela_kod) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				PreparedStatement ps = conexion.prepareStatement(query)) {
+			ps.setInt(1, zerb_kod);
+			ps.setString(2, izena);
+			ps.setString(3, prezioa);
+			ps.setString(4, hiria);
+			ps.setDate(5, hasieraData);
+			ps.setDate(6, amaieraData);
+			ps.setObject(7, logelaMot);
+			ps.executeUpdate();
+
+		} catch (Exception ex) {
+
+			ex.printStackTrace();
+
+		}
+
 	}
 }
