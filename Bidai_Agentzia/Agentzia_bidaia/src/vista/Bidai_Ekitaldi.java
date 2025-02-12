@@ -91,7 +91,7 @@ public class Bidai_Ekitaldi extends JPanel {
 
 		bidaiakTaula = new JTable();
 		scrollPane.setViewportView(bidaiakTaula);
-
+		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(34, 278, 648, 168);
 		panel_1.add(scrollPane_1);
@@ -136,7 +136,9 @@ public class Bidai_Ekitaldi extends JPanel {
 		labelConImagen.setBounds(00, 00, 1280, 720);
 		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
 		add(labelConImagen);
-
+		
+		cargarDatosTabla();
+		
 	}
 
 	public void cargarDatosTabla() {
@@ -144,7 +146,7 @@ public class Bidai_Ekitaldi extends JPanel {
 		String usuario = "root";
 		String contraseña = "";
 
-		String query = "SELECT izena, deskribapena, bidai_iraupen, hasiera_data, amaiera_data, herrialdea, bidai_deskribapena FROM bidaia";
+		String query = "SELECT izena, deskribapena, bidai_iraupen, hasiera_data, amaiera_data, herrialdea FROM bidaia";
 
 		DefaultTableModel modeloTabla = new DefaultTableModel();
 		modeloTabla.addColumn("Izena");
@@ -165,10 +167,8 @@ public class Bidai_Ekitaldi extends JPanel {
 				Date hasieraData = rs.getDate("hasiera_data");
 				Date amaieraData = rs.getDate("amaiera_data");
 				Object herrialdea = rs.getObject("herrialdea");
-				Object bidaiMota = rs.getObject("bidaiMota");
 
-				modeloTabla.addRow(new Object[] { izena, deskribapena, iraupena, hasieraData, amaieraData, herrialdea,
-						bidaiMota });
+				modeloTabla.addRow(new Object[] { izena, deskribapena, iraupena, hasieraData, amaieraData, herrialdea});
 
 			}
 			bidaiakTaula.setModel(modeloTabla);

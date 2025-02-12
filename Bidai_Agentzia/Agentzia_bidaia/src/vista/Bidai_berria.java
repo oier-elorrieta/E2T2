@@ -127,7 +127,7 @@ public class Bidai_berria extends JPanel {
 		 */
 
 		HerrialdeakDB();
-
+		
 	}
 
 	// ----------------------------------------------------------------
@@ -140,12 +140,11 @@ public class Bidai_berria extends JPanel {
 		Date hasieraData = new Date(dateChooserInicio.getDate().getTime());
 		Date amaieraData = new Date(dateChooserFin.getDate().getTime());
 		Object herrialdea = comboBox_1.getSelectedItem();
-		Object bidaiMota = comboBoxMota.getSelectedItem();
-		int agentziaId = 1;
+		int agentziaId = 4;
 		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
-		String query = "INSERT INTO bidaia (izena, deskribapena, bidai_iraupen, hasiera_data, amaiera_data, agentzia_id, herrialdea, bidai_deskribapena) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String query = "INSERT INTO bidaia (izena, deskribapena, bidai_iraupen, hasiera_data, amaiera_data, agentzia_id, herrialdea) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
 				PreparedStatement ps = conexion.prepareStatement(query)) {
@@ -156,7 +155,6 @@ public class Bidai_berria extends JPanel {
 			ps.setDate(5, amaieraData);
 			ps.setInt(6, agentziaId);
 			ps.setObject(7, herrialdea);
-			ps.setObject(8, bidaiMota);
 			ps.executeUpdate();
 
 		} catch (Exception ex) {
