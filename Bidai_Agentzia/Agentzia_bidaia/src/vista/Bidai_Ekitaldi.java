@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import javax.swing.JLabel;
-
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import javax.swing.JTable;
@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -225,6 +226,93 @@ public class Bidai_Ekitaldi extends JPanel {
 			ekitaldiTaula.setModel(modeloTabla);
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+	}
+
+	public void ezabatuEkitaldi() {
+		int filaSeleccionada = ekitaldiTaula.getSelectedRow();
+
+		if (filaSeleccionada == -1) {
+			JOptionPane.showMessageDialog(null, "Selecciona una fila para eliminar.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		String izena = ekitaldiTaula.getValueAt(filaSeleccionada, 0).toString();
+		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+		String query = "DELETE FROM ostatua WHERE izena = ?";
+		String query2 = "DELETE FROM beste_batzuk WHERE izena = ?";
+		String query3 = "DELETE FROM bidaia WHERE izena = ?";
+
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				PreparedStatement ps = conexion.prepareStatement(query)) {
+			ps.setString(1, izena);
+			int filasAfectadas = ps.executeUpdate();
+
+			if (filasAfectadas > 0) {
+				JOptionPane.showMessageDialog(null, "Ekitaldi ezabatuta.");
+			} else {
+				JOptionPane.showMessageDialog(null, "Ez da ekitaldia ezabatu", "Error", JOptionPane.ERROR_MESSAGE);
+			}
+
+			cargarDatosTablaEkitaldi();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Ez da ekitaldia ezabatu", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				PreparedStatement ps = conexion.prepareStatement(query2)) {
+			ps.setString(1, izena);
+			int filasAfectadas = ps.executeUpdate();
+
+			if (filasAfectadas > 0) {
+				JOptionPane.showMessageDialog(null, "Ekitaldi ezabatuta.");
+			} else {
+				JOptionPane.showMessageDialog(null, "Ez da ekitaldia ezabatu", "Error", JOptionPane.ERROR_MESSAGE);
+			}
+
+			cargarDatosTablaEkitaldi();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Ez da ekitaldia ezabatu", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	public void ezabatuBidaia() {
+		int filaSeleccionada = bidaiakTaula.getSelectedRow();
+
+		if (filaSeleccionada == -1) {
+			JOptionPane.showMessageDialog(null, "Selecciona una fila para eliminar.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		String izen = bidaiakTaula.getValueAt(filaSeleccionada, 0).toString();
+		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String usuario = "root";
+		String contraseña = "";
+		String query3 = "DELETE FROM bidaia WHERE izena = ?";
+
+		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+				PreparedStatement ps = conexion.prepareStatement(query3)) {
+			ps.setString(1, izen);
+			int filasAfectadas = ps.executeUpdate();
+
+			if (filasAfectadas > 0) {
+				JOptionPane.showMessageDialog(null, "Bidai ezabatuta.");
+			} else {
+				JOptionPane.showMessageDialog(null, "Bidaia ez da ezabatu", "Error", JOptionPane.ERROR_MESSAGE);
+			}
+
+			cargarDatosTablaBidaiak();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Bidaia ez da ezabatu", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

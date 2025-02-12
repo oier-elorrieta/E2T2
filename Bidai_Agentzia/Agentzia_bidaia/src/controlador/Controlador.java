@@ -203,6 +203,12 @@ public class Controlador {
 				ventanaPrincipal.besteBatzuk.guardarBesteBatzuk();
 			}
 		});
+		ventanaPrincipal.bidai_Ekitaldi.btnEzabatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.bidai_Ekitaldi.ezabatuEkitaldi();
+				ventanaPrincipal.bidai_Ekitaldi.ezabatuBidaia();
+			}
+		});
 	}
 	public int bidaiKopurua() {
 		return kopurua;
