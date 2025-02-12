@@ -237,7 +237,7 @@ public class Hegaldia extends JPanel {
 	// ------------------METODO COMBOBOX-----------------------------
 	// ----------------------------------------------------------------
 	private void aireportuDB() {
-		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT hiria FROM aireportua";

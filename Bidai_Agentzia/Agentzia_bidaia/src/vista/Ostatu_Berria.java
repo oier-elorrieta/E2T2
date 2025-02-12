@@ -14,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import com.toedter.calendar.JDateChooser;
+import vista.Bidai_Ekitaldi;
 
 public class Ostatu_Berria extends JPanel {
 
@@ -154,7 +155,7 @@ public class Ostatu_Berria extends JPanel {
 	// ------------------METODO LOGELA MOTA----------------------------
 	// ----------------------------------------------------------------
 	private void logelaMotaDB() {
-		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT logela_kod FROM logela_mota";
@@ -175,35 +176,35 @@ public class Ostatu_Berria extends JPanel {
 	// ------------------METODO GUARDAR DATOS--------------------------
 	// ----------------------------------------------------------------
 	public void guardarOstatua() {
-		String izena = izenaTestua.getText();
-		String prezioa = prezio.getText();
-		Date hasieraData = new Date(dataHasiera.getDate().getTime());
-		Date amaieraData = new Date(dataAmaiera.getDate().getTime());
-		Object logelaMot = logelaMota.getSelectedItem();
-		String hiria = herrialdea.getText();
-		int zerb_kod =3;
+	    String izena = izenaTestua.getText();
+	    String prezioa = prezio.getText();
+	    Date hasieraData = new Date(dataHasiera.getDate().getTime());
+	    Date amaieraData = new Date(dataAmaiera.getDate().getTime());
+	    Object logelaMot = logelaMota.getSelectedItem();
+	    String hiria = herrialdea.getText();
+	    int zerb_kod = 3;
 
-		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
-		String usuario = "root";
-		String contraseña = "";
-		String query = "INSERT INTO ostatua (zerb_kod, izena, prezioa,	hiria , sarrera_egun, ireeta_egun, logela_kod) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	    String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+	    String usuario = "root";
+	    String contraseña = "";
+	    String query = "INSERT INTO ostatua (zerb_kod, izena, prezioa, hiria, sarrera_egun, ireeta_egun, logela_kod) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-				PreparedStatement ps = conexion.prepareStatement(query)) {
-			ps.setInt(1, zerb_kod);
-			ps.setString(2, izena);
-			ps.setString(3, prezioa);
-			ps.setString(4, hiria);
-			ps.setDate(5, hasieraData);
-			ps.setDate(6, amaieraData);
-			ps.setObject(7, logelaMot);
-			ps.executeUpdate();
+	    try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+	         PreparedStatement ps = conexion.prepareStatement(query)) {
+	        ps.setInt(1, zerb_kod);
+	        ps.setString(2, izena);
+	        ps.setString(3, prezioa);
+	        ps.setString(4, hiria);
+	        ps.setDate(5, hasieraData);
+	        ps.setDate(6, amaieraData);
+	        ps.setObject(7, logelaMot);
+	        ps.executeUpdate();
 
-		} catch (Exception ex) {
-
-			ex.printStackTrace();
-
-		}
-
+	        Bidai_Ekitaldi.cargarDatosTablaEkitaldi();
+	    } catch (Exception ex) {
+	        ex.printStackTrace();
+	    }
 	}
+
+	
 }

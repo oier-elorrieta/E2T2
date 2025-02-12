@@ -38,7 +38,7 @@ public class Bidai_Ekitaldi extends JPanel {
 	public JButton btnEkitaldiBerri;
 	public JButton btnEzabatu;
 	private JTable bidaiakTaula;
-	private JTable ekitaldiTaula;
+	private static JTable ekitaldiTaula;
 	public JButton btnTrampa;
 
 	/**
@@ -130,11 +130,12 @@ public class Bidai_Ekitaldi extends JPanel {
 		add(labelConImagen);
 		
 		cargarDatosTablaBidaiak();
+		cargarDatosTablaEkitaldi(); 
 		
 	}
 
 	public void cargarDatosTablaBidaiak() {
-		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 
@@ -169,40 +170,39 @@ public class Bidai_Ekitaldi extends JPanel {
 			e.printStackTrace();
 		}
 	}
-	public void cargarDatosTablaEkitaldi() {
-		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
-		String usuario = "root";
-		String contraseña = "";
+	public static void cargarDatosTablaEkitaldi() {
+	    String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+	    String usuario = "root";
+	    String contraseña = "";
+	    String query = "SELECT izena, prezioa, hiria, sarrera_egun, ireeta_egun, logela_kod FROM ostatua";
 
-		String query = "SELECT izena, prezioa,	hiria , sarrera_egun, ireeta_egun, logela_kod FROM ostatua";
+	    DefaultTableModel modeloTabla = new DefaultTableModel();
+	    modeloTabla.addColumn("Izena");
+	    modeloTabla.addColumn("Prezioa");
+	    modeloTabla.addColumn("Hiria");
+	    modeloTabla.addColumn("Hasiera Data");
+	    modeloTabla.addColumn("Amaiera Data");
+	    modeloTabla.addColumn("Logela Mota");
 
-		DefaultTableModel modeloTabla2 = new DefaultTableModel();
-		modeloTabla2.addColumn("Izena");
-		modeloTabla2.addColumn("Prezioa");
-		modeloTabla2.addColumn("Hiria");
-		modeloTabla2.addColumn("Hasiera Data");
-		modeloTabla2.addColumn("Amaiera Data");
-		modeloTabla2.addColumn("Logela Mota");
-
-		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-				Statement stmt = conexion.createStatement();
-				ResultSet rs = stmt.executeQuery(query)) {
-
-			while (rs.next()) {
-				String izena = rs.getString("izena");
-				String prezioa = rs.getString("prezioa");
-				String hiria = rs.getString("hiria");
-				Date hasieraData = rs.getDate("hasiera_data");
-				Date amaieraData = rs.getDate("amaiera_data");
-				Object logelaMota = rs.getObject("logela Mota");
-
-				modeloTabla2.addRow(new Object[] { izena, prezioa, hiria, hasieraData, amaieraData, logelaMota});
-
-			}
-			ekitaldiTaula.setModel(modeloTabla2);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	    try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+	         Statement stmt = conexion.createStatement();
+	         ResultSet rs = stmt.executeQuery(query)) {
+	        
+	        while (rs.next()) {
+	            String izena = rs.getString("izena");
+	            String prezioa = rs.getString("prezioa");
+	            String hiria = rs.getString("hiria");
+	            Date hasieraData = rs.getDate("sarrera_egun");
+	            Date amaieraData = rs.getDate("ireeta_egun");
+	            Object logelaMota = rs.getObject("logela_kod");
+	            
+	            modeloTabla.addRow(new Object[]{izena, prezioa, hiria, hasieraData, amaieraData, logelaMota});
+	        }
+	        
+	        ekitaldiTaula.setModel(modeloTabla);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
+
 }

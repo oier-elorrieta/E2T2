@@ -127,7 +127,7 @@ public class Beste_Batzuk extends JPanel {
 	// ------------------METODO COMBOBOX-------------------------------
 	// ----------------------------------------------------------------
 	private void jardueraMotaDB() {
-		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT deskribapena FROM logela_mota";
