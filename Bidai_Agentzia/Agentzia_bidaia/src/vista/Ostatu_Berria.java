@@ -151,7 +151,7 @@ public class Ostatu_Berria extends JPanel {
 	// ------------------METODO LOGELA MOTA----------------------------
 	// ----------------------------------------------------------------
 	private void logelaMotaDB() {
-		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT deskribapena FROM logela_mota";

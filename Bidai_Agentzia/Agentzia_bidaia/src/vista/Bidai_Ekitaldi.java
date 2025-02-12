@@ -140,7 +140,7 @@ public class Bidai_Ekitaldi extends JPanel {
 	}
 
 	public void cargarDatosTabla() {
-		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 

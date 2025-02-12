@@ -19,6 +19,7 @@ import javax.swing.JColorChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,10 +33,8 @@ public class Profil_Berria extends JPanel {
 	public JButton btnAtzera;
 	public JComboBox agentzia;
 	public JComboBox langile;
-	private JTextField erabiltzaile, logo, kolorea, pasahitza;
-	public JTextField izena;
-	private JTextField erabiltzai;
-	private JTextField psahitza;
+	private JTextField erabiltzaile, kolorea, pasahitza, izena;
+	private JTextField logoa;
 
 	/**
 	 * Create the panel.
@@ -68,12 +67,6 @@ public class Profil_Berria extends JPanel {
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2.setBounds(70, 169, 215, 33);
 		panel_1.add(lblNewLabel_2);
-
-		JTextField logoa = new JTextField();
-		logoa.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		logoa.setBounds(350, 339, 224, 44);
-		panel_1.add(logoa);
-		logoa.setColumns(10);
 
 		JLabel lblNewLabel_3 = new JLabel("Langile kopurua");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -128,7 +121,6 @@ public class Profil_Berria extends JPanel {
 				Color selectedColor = JColorChooser.showDialog(panel_1, "Elige un color", kolorea.getBackground());
 				if (selectedColor != null) {
 					kolorea.setBackground(selectedColor);
-					logoa.setText("#" + Integer.toHexString(selectedColor.getRGB()).substring(2).toUpperCase());
 				}
 			}
 		});
@@ -153,11 +145,11 @@ public class Profil_Berria extends JPanel {
 		btnUtzi.setBounds(173, 452, 95, 33);
 		panel_1.add(btnUtzi);
 		
-		erabiltzai = new JTextField();
-		erabiltzai.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		erabiltzai.setColumns(10);
-		erabiltzai.setBounds(669, 166, 223, 36);
-		panel_1.add(erabiltzai);
+		erabiltzaile = new JTextField();
+		erabiltzaile.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		erabiltzaile.setColumns(10);
+		erabiltzaile.setBounds(669, 166, 223, 36);
+		panel_1.add(erabiltzaile);
 		
 		JLabel lblErabiltzaile = new JLabel("Erabiltzaile");
 		lblErabiltzaile.setForeground(Color.WHITE);
@@ -165,17 +157,23 @@ public class Profil_Berria extends JPanel {
 		lblErabiltzaile.setBounds(669, 125, 189, 44);
 		panel_1.add(lblErabiltzaile);
 		
-		psahitza = new JTextField();
-		psahitza.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		psahitza.setColumns(10);
-		psahitza.setBounds(669, 263, 223, 36);
-		panel_1.add(psahitza);
+		pasahitza = new JTextField();
+		pasahitza.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		pasahitza.setColumns(10);
+		pasahitza.setBounds(669, 263, 223, 36);
+		panel_1.add(pasahitza);
 		
 		JLabel lblNewLabel_6_1 = new JLabel("Pasahitza");
 		lblNewLabel_6_1.setForeground(Color.WHITE);
 		lblNewLabel_6_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_6_1.setBounds(669, 222, 189, 44);
 		panel_1.add(lblNewLabel_6_1);
+		
+		logoa = new JTextField();
+		logoa.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		logoa.setColumns(10);
+		logoa.setBounds(351, 347, 223, 36);
+		panel_1.add(logoa);
 
 		// ----------------------------------------------------------------
 		// ------------------ATZERA BOTOIA----f-----------------------------
@@ -198,17 +196,17 @@ public class Profil_Berria extends JPanel {
 	// ------------------METODO LANGILEAK-----------------------------
 	// ----------------------------------------------------------------
 	private void langileKopDB() {
-		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
-		String query = "SELECT deskribapena FROM langile_kop";
+		String query = "SELECT langile_kod FROM langile_kop";
 
 		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
 				PreparedStatement ps = conexion.prepareStatement(query);
 				ResultSet rs = ps.executeQuery()) {
 
 			while (rs.next()) {
-				langile.addItem(rs.getString("deskribapena"));
+				langile.addItem(rs.getString("langile_kod"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -219,7 +217,7 @@ public class Profil_Berria extends JPanel {
 	// ------------------METODO AGENTZIA-----------------------------
 	// ----------------------------------------------------------------
 	private void agentziaMotaDB() {
-		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT deskribapena FROM agentzia_mota";
@@ -236,34 +234,38 @@ public class Profil_Berria extends JPanel {
 		}
 	}
 
+	
 	// ----------------------------------------------------------------
-	// ------------------METODO SARTU DATUAK---------------------------
-	// ----------------------------------------------------------------
-	public void insertarDatosEnDB() {
-		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
-		String usuario = "root";
-		String contraseña = "";
+		// ------------------METODO GUARDAR DATOS--------------------------
+		// ----------------------------------------------------------------
+		public void guardarDatos() {
+			String izen = izena.getText();
+			String logo = logoa.getText();
+			String psahitza = pasahitza.getText();
+			String erabiltzai = erabiltzaile.getText();
+			Object langilea = langile.getSelectedItem();
+			Object agenMota = agentzia.getSelectedItem();
+			
+			
+			String url = "jdbc:mysql://localhost:2025/db_bidai_agentzia";
+			String usuario = "root";
+			String contraseña = "";
+			String query = "INSERT INTO agentzia (izena, logoa, erabiltzailea, pasahitza, langile_kod) VALUES (?, ?, ?, ?, ?)";
 
-		String query = "INSERT INTO agentzia (izena, logo, kolorea, erabiltzaile, pasahitza, langile_kop, agentzia_mota) VALUES (?, ?, ?, ?, ?)";
+			try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+					PreparedStatement ps = conexion.prepareStatement(query)) {
+				ps.setString(1, izen);
+				ps.setString(2, logo);
+				ps.setString(3, erabiltzai);
+				ps.setString(4, psahitza);
+				ps.setObject(5, langilea);
+				ps.executeUpdate();
 
-		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-				PreparedStatement ps = conexion.prepareStatement(query)) {
+			} catch (Exception ex) {
 
-			ps.setString(1, izena.getText());
-			ps.setString(2, logo.getText());
-			ps.setString(3, erabiltzai.getText());
-			ps.setString(4, psahitza.getText());
-			ps.setString(5, langile.getSelectedItem().toString());
-			ps.setString(6, agentzia.getSelectedItem().toString());
+				ex.printStackTrace();
 
-			int filasInsertadas = ps.executeUpdate();
-
-			if (filasInsertadas > 0) {
-				JOptionPane.showMessageDialog(this, "Registro insertado correctamente");
 			}
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			JOptionPane.showMessageDialog(this, "Error al insertar datos: " + ex.getMessage());
+
 		}
-	}
 }
