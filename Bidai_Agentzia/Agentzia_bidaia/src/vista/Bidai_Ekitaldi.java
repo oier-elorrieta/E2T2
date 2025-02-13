@@ -38,7 +38,7 @@ public class Bidai_Ekitaldi extends JPanel {
 	public JButton btnBidaiBerri;
 	public JButton btnEkitaldiBerri;
 	public JButton btnEzabatu;
-	private JTable bidaiakTaula;
+	private static JTable bidaiakTaula;
 	private static JTable ekitaldiTaula;
 	public JButton btnTrampa;
 
@@ -135,7 +135,7 @@ public class Bidai_Ekitaldi extends JPanel {
 
 	}
 
-	public void cargarDatosTablaBidaiak() {
+	public static void cargarDatosTablaBidaiak() {
 		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
@@ -244,7 +244,6 @@ public class Bidai_Ekitaldi extends JPanel {
 		String contraseña = "";
 		String query = "DELETE FROM ostatua WHERE izena = ?";
 		String query2 = "DELETE FROM beste_batzuk WHERE izena = ?";
-		String query3 = "DELETE FROM bidaia WHERE izena = ?";
 
 		try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
 				PreparedStatement ps = conexion.prepareStatement(query)) {

@@ -118,14 +118,11 @@ public class Bidai_berria extends JPanel {
 		btnAtzera.setBounds(10, 11, 50, 23);
 		add(btnAtzera);
 
-		/*
-		 * btnGorde.addActionListener(new ActionListener() { public void
-		 * actionPerformed(ActionEvent e) { guardarDatos();
-		 * 
-		 * 
-		 * });
-		 */
-
+		JLabel labelConImagen = new JLabel();
+		labelConImagen.setBounds(0, 0, 1280, 720);
+		add(labelConImagen);
+		labelConImagen.setIcon(new ImageIcon(getClass().getResource("/img/bestea.png")));
+		
 		HerrialdeakDB();
 		
 	}
@@ -140,7 +137,7 @@ public class Bidai_berria extends JPanel {
 		Date hasieraData = new Date(dateChooserInicio.getDate().getTime());
 		Date amaieraData = new Date(dateChooserFin.getDate().getTime());
 		Object herrialdea = comboBox_1.getSelectedItem();
-		int agentziaId = 4;
+		int agentziaId = 1;
 		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
@@ -157,6 +154,7 @@ public class Bidai_berria extends JPanel {
 			ps.setObject(7, herrialdea);
 			ps.executeUpdate();
 
+			Bidai_Ekitaldi.cargarDatosTablaBidaiak();
 		} catch (Exception ex) {
 
 			ex.printStackTrace();
