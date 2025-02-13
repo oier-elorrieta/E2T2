@@ -136,7 +136,7 @@ public class Beste_Batzuk extends JPanel {
 	// ------------------METODO COMBOBOX-------------------------------
 	// ----------------------------------------------------------------
 	private void jardueraMotaDB() {
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT deskribapena FROM logela_mota";
@@ -162,7 +162,7 @@ public class Beste_Batzuk extends JPanel {
 		    String deskrip = deskripzioa.getText();
 		    int zerb_kod = 3;
 
-		    String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		    String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		    String usuario = "root";
 		    String contraseña = "";
 		    String query = "INSERT INTO beste_batzuk (zerb_kod, izena, deskribapena, prezioa, eguna) VALUES (?, ?, ?, ?, ?)";

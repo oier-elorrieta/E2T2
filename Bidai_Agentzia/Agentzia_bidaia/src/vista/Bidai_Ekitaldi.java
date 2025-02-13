@@ -136,7 +136,7 @@ public class Bidai_Ekitaldi extends JPanel {
 	}
 
 	public void cargarDatosTablaBidaiak() {
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 
@@ -174,7 +174,7 @@ public class Bidai_Ekitaldi extends JPanel {
 	}
 
 	public static void cargarDatosTablaEkitaldi() {
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT izena, prezioa, hiria, sarrera_egun, ireeta_egun, logela_kod FROM ostatua";
@@ -239,7 +239,7 @@ public class Bidai_Ekitaldi extends JPanel {
 		}
 
 		String izena = ekitaldiTaula.getValueAt(filaSeleccionada, 0).toString();
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "DELETE FROM ostatua WHERE izena = ?";
@@ -292,7 +292,7 @@ public class Bidai_Ekitaldi extends JPanel {
 		}
 
 		String izen = bidaiakTaula.getValueAt(filaSeleccionada, 0).toString();
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query3 = "DELETE FROM bidaia WHERE izena = ?";

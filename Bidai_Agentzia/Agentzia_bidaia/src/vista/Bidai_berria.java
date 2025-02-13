@@ -141,7 +141,7 @@ public class Bidai_berria extends JPanel {
 		Date amaieraData = new Date(dateChooserFin.getDate().getTime());
 		Object herrialdea = comboBox_1.getSelectedItem();
 		int agentziaId = 4;
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "INSERT INTO bidaia (izena, deskribapena, bidai_iraupen, hasiera_data, amaiera_data, agentzia_id, herrialdea) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -169,7 +169,7 @@ public class Bidai_berria extends JPanel {
 	// ------------------METODO COMBOBOX-----------------------------
 	// ----------------------------------------------------------------
 	private void HerrialdeakDB() {
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT herrialdea FROM herrialdeak";

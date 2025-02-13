@@ -196,7 +196,7 @@ public class Profil_Berria extends JPanel {
 	// ------------------METODO LANGILEAK-----------------------------
 	// ----------------------------------------------------------------
 	private void langileKopDB() {
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT langile_kod FROM langile_kop";
@@ -217,7 +217,7 @@ public class Profil_Berria extends JPanel {
 	// ------------------METODO AGENTZIA-----------------------------
 	// ----------------------------------------------------------------
 	private void agentziaMotaDB() {
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT deskribapena FROM agentzia_mota";
@@ -247,7 +247,7 @@ public class Profil_Berria extends JPanel {
 			Object agenMota = agentzia.getSelectedItem();
 			
 			
-			String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+			String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 			String usuario = "root";
 			String contraseña = "";
 			String query = "INSERT INTO agentzia (izena, logoa, erabiltzailea, pasahitza, langile_kod) VALUES (?, ?, ?, ?, ?)";

@@ -155,7 +155,7 @@ public class Ostatu_Berria extends JPanel {
 	// ------------------METODO LOGELA MOTA----------------------------
 	// ----------------------------------------------------------------
 	private void logelaMotaDB() {
-		String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+		String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 		String usuario = "root";
 		String contraseña = "";
 		String query = "SELECT logela_kod FROM logela_mota";
@@ -184,7 +184,7 @@ public class Ostatu_Berria extends JPanel {
 	    String hiria = herrialdea.getText();
 	    int zerb_kod = 3;
 
-	    String url = "jdbc:mysql://localhost:3306/db_bidai_agentzia";
+	    String url = "jdbc:mysql://localhost:3307/db_bidai_agentzia";
 	    String usuario = "root";
 	    String contraseña = "";
 	    String query = "INSERT INTO ostatua (zerb_kod, izena, prezioa, hiria, sarrera_egun, ireeta_egun, logela_kod) VALUES (?, ?, ?, ?, ?, ?, ?)";

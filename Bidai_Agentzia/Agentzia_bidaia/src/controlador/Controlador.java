@@ -58,7 +58,7 @@ public class Controlador {
 
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");
-					Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_bidai_agentzia",
+					Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/db_bidai_agentzia",
 							"root", "");
 					Statement sentencia = conexion.createStatement();
 					String sql = "SELECT * FROM agentzia WHERE erabiltzailea = '" + izena + "' AND pasahitza= '"
